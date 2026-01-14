@@ -1,16 +1,16 @@
 # Strategy & Stack
 
-> Build Your Sales Engine Without Building a Sales Team
+> Build Your Sales Engine Faster Than Ever
 
 ## What We Do
 
-Strategy & Stack provides Sales Architecture: Five modular blueprints that install lead generation systems using automation, AI, and battle-tested processes—delivering results that would traditionally require 3x to 5x more staff.
+Strategy & Stack provides Sales Architecture: Five modular blueprints that produce revenue using automation, AI, and battle-tested strategies that would traditionally require 7X more time and staff.
 
-We install complete sales infrastructure in weeks, not months. Clients own everything we build, with 50-70% time savings vs. manual approaches.
+We install complete sales infrastructure in weeks, not months. Clients own everything we build, with 50 to 70% time savings vs. manual approaches.
 
 ## The Problem We Solve
 
-Most service businesses hit a ceiling. Not because they can't get more clients—but because they've grown through referrals and have no predictable outbound system. Building one manually takes hundreds of hours and countless mistakes.
+Most service businesses hit a ceiling. Not because they can't get more clients, but because they've grown through referrals and have no predictable outbound system. Building one manually takes hundreds of hours and countless mistakes.
 
 ## Our Solution
 
@@ -19,7 +19,7 @@ We install complete sales infrastructure in weeks, not months. You get the syste
 ## The Five Blueprints
 
 ### Blueprint 1: Account Setup ($8,125)
-The foundation for everything. 2-3 weeks from kickoff.
+The foundation for everything. 2 to 3 weeks from kickoff.
 - 2 custom domains with SPF, DKIM, and DMARC
 - 10 email inboxes warmed to 95%+ deliverability
 - 2 LinkedIn profiles optimized for your ICP
@@ -40,7 +40,7 @@ Paid advertising that accelerates everything. 30 days managed.
 - 12 ads designed for conversion
 - Budget pacing and optimization
 - Performance reporting
-- Manual: 60-80+ hours | Blueprint: 23 hours
+- Manual: 60 to 80+ hours | Blueprint: 23 hours
 
 ### Blueprint 4: Outbound ($4,875)
 Direct outreach that scales. 90 days, 1,000 leads.
@@ -48,7 +48,7 @@ Direct outreach that scales. 90 days, 1,000 leads.
 - Multi-step email and LinkedIn sequences
 - Automated follow-ups with reply detection
 - Live reporting dashboard
-- Manual: 170-230+ hours | Blueprint: 26 hours
+- Manual: 170 to 230+ hours | Blueprint: 26 hours
 
 ### Blueprint 5: Process Automation (Custom)
 AI-powered workflow automation.
@@ -59,19 +59,19 @@ AI-powered workflow automation.
 
 ## Packages
 
-### Starter — $11,750
+### Starter: $11,750
 Account Setup + Outbound Blueprint (90 days)
 Save $1,250 vs. separate blueprints
 
-### Growth — $13,750 (Most Popular)
+### Growth: $13,750 (Most Popular)
 Account Setup + Content (12 weeks) + Outbound (90 days)
 Save $1,875 vs. separate blueprints
 
-### Full Stack — $21,000
+### Full Stack: $21,000
 All four sales blueprints
 Save $2,375 vs. separate blueprints
 
-### Scale — Custom Quote
+### Scale: Custom Quote
 Full Stack + Custom process automation
 Revenue share option available
 
@@ -95,4 +95,6 @@ Revenue share option available
 Book a strategy call: https://app.apollo.io/#/meet/managed-meetings/eddie/hor-57g-ivh/start
 Website: https://strategyandstack.com
 
-© 2026 Strategy & Stack. Sales Architecture v4.0.
+Powered by LinkedIn Success Formula + AuthGen + RocketsTraffic + Evil Genius Corp
+
+© 2026 Strategy & Stack
