@@ -55,13 +55,7 @@ let ctaHoverTimeout = null;
 let blurOverlay = null;
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM loaded');
-    console.log('data:', data);
-    console.log('createBlueprintNavItem:', typeof createBlueprintNavItem);
-    if (!data) {
-        console.error('DATA IS NOT LOADED');
-        return;
-    }
+    if (!data) return;
     initBlurOverlay();
     initMouseGlow();
     initScrollProgress();
@@ -81,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initCTAFocusEffect();
     initAnimations();
     lucide.createIcons();
-    console.log('All init functions completed');
 });
 
 function initBlurOverlay() {
@@ -274,17 +267,13 @@ function initLayout() {
     if (statsGrid) statsGrid.innerHTML = data.social_proof.stats.map(s => createStatItem(s)).join('');
     
     const bpContainer = document.getElementById('blueprints-container');
-    console.log('bpContainer:', bpContainer);
-    console.log('data.blueprints:', data.blueprints);
     if (bpContainer) {
-        console.log('Creating blueprints HTML...');
         bpContainer.innerHTML = `
 <div class="blueprint-dashboard section-reveal">
     <div class="blueprint-nav">${data.blueprints.map((bp, i) => createBlueprintNavItem(bp, i === 0)).join('')}</div>
     <div class="blueprint-display" id="blueprint-display">${createBlueprintDisplay(data.blueprints[0], LANG)}</div>
 </div>
 ${createBlueprintAccordion(data.blueprints, LANG)}`;
-        console.log('Blueprints HTML created');
         setTimeout(() => {
             const display = document.getElementById('blueprint-display');
             if (display) display.classList.add('active');
@@ -533,5 +522,5 @@ function initAnimations() {
     gsap.from('#hero-headline', { opacity: 0, y: 50, duration: 1.2, ease: 'expo.out' });
     gsap.from('.hero-content p, .hero-content .flex', { opacity: 0, y: 25, duration: 1, stagger: 0.1, delay: 0.2, ease: 'power3.out' });
     gsap.from('.email-editor', { opacity: 0, scale: 0.96, duration: 1, delay: 0.4, ease: 'expo.out' });
-    gsap.from('.blueprint-dashboard', { scrollTrigger: { trigger: '.blueprint-dashboard', start: 'top 85%' }, opacity: 0, y: 30, duration: 0.8, ease: 'expo.out' });
+    // Removed blueprint-dashboard animation - conflicts with section-reveal CSS
 }
