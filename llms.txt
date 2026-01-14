@@ -9,16 +9,18 @@ Strategy & Stack provides Sales Architecture services - five modular systems (bl
 ### Key Value Proposition
 - 70%+ time savings compared to manual approaches
 - 7x faster than DIY implementation
-- 95%+ email deliverability target
+- 98%+ email deliverability target
 - Full ownership - clients own all accounts, content, and data
 - No lock-in or dependency
 
 ### Target Audience
-- B2B service businesses
+- Service businesses
+- Product businesses 
 - Agencies and consultancies
 - SaaS companies
 - Professional services firms (legal, accounting, financial advisory)
 - Tech-enabled service providers
+- Companies making over $500,000 ARR
 
 ## Services Offered
 
@@ -29,34 +31,36 @@ Strategy & Stack provides Sales Architecture services - five modular systems (bl
    - 10 warmed email inboxes
    - 2 optimized LinkedIn profiles
    - 1 conversion-focused landing page
-   - Timeline: 2-3 weeks
+   - Timeline: 2 to 4 weeks from kickoff to ensure fully warmed inboxes
 
 2. **Content** ($2,625)
-   - 12 weeks of LinkedIn and Instagram content
-   - 26 platform-native posts
+   - 26 platform-native posts for LinkedIn and Instagram
    - 40/30/30 framework (Educational/Personal/Sales)
-   - Timeline: Calendar delivered in 2 weeks
+   - Carousels and static posts designed for reach
+   - Timeline: Content calendar to cover 3+ months, delivered within 2 weeks
 
 3. **Ads** ($7,750)
    - 30-day lead generation campaigns
    - Meta, Google, and LinkedIn setup
    - 12 ads with copy and visuals
-   - Structured funnel approach
-   - Timeline: Live within first week
+   - Structured funnel approach (25% Awareness, 25% Consideration, 50% Decision)
+   - Timeline: Campaigns live within the first week, runs for 30 days
 
 4. **Outbound** ($4,875)
    - 90-day campaign to 1,000 qualified leads
    - ~4,000 total touches
    - Multi-step email and LinkedIn sequences
-   - Automated follow-ups
-   - Timeline: Live in 1-2 weeks
+   - Automated follow-ups with reply detection
+   - Timeline: System live within 1 to 2 weeks, runs for 90 days
 
 5. **Process Automation** (Custom pricing)
-   - Lead capture to CRM automation
+   - Lead capture to CRM with automatic enrichment and scoring
    - Client onboarding workflows
    - AI-powered email drafting
    - Cross-platform data sync
-   - Custom reporting dashboards
+   - Automated reporting dashboards
+   - Document generation from templates
+   - Timeline: Scoped per engagement
 
 ### Packages
 
@@ -65,12 +69,27 @@ Strategy & Stack provides Sales Architecture services - five modular systems (bl
 - **Full Stack** ($21,000): All four sales systems - Save $2,375
 - **Scale** (Custom): Full Stack + Process Automation
 
+## What We Guarantee vs What Depends on Your Market
+
+### We Guarantee:
+- The work gets done: emails sent, profiles optimized, ads launched, content published
+- The systems are configured correctly and running
+- You have full visibility into activity and metrics
+- You own everything we build (accounts, content, data)
+
+### What Depends on Your Market:
+- How prospects respond to your outreach
+- Meetings booked and deals closed
+- Your cost per lead and customer acquisition
+
 ## Contact & Booking
 
 To book a strategy call or learn more:
 - Website: https://strategyandstack.com
 - Spanish version: https://strategyandstack.com/es/
 - Booking link: https://app.apollo.io/#/meet/managed-meetings/eddie/hor-57g-ivh/start
+
+Note: We onboard 2 clients per month to ensure quality.
 
 ## Languages
 
@@ -94,7 +113,10 @@ A: Agencies charge monthly retainers and own the relationship with your tools. S
 A: Guaranteed: work gets done correctly (emails sent, profiles optimized, campaigns launched). Market-dependent: response rates, conversion rates, meetings booked.
 
 **Q: How long until results?**
-A: Most clients see meaningful pipeline activity within 30-45 days of going live.
+A: Most clients see meaningful pipeline activity within 30 to 45 days of going live.
+
+**Q: How do you guarantee email deliverability?**
+A: We guarantee correct infrastructure: verified domains, SPF, DKIM, and DMARC configured, plus inboxes warmed to 98%+ deliverability scores before any outreach begins.
 
 ## Technical Information
 
