@@ -225,11 +225,14 @@ h1, h2, h3, h4 { letter-spacing: -0.04em; font-weight: 900; }
 
 .btn-secondary:hover::before { opacity: 1; }
 
-/* CTA Focus Effect */
+/* CTA Focus Effect - synced 2s animation */
 .btn-primary.cta-focus, .btn-secondary.cta-focus,
 .display-cta.cta-focus, .pricing-cta.cta-focus {
-    transform: scale(1.03) translateY(-2px);
-    box-shadow: 0 20px 50px -10px rgba(168, 85, 247, 0.4);
+    position: relative;
+    z-index: 60;
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 25px 60px -10px rgba(168, 85, 247, 0.5);
+    transition: all 2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Elevate parent card when CTA is focused */
@@ -603,9 +606,8 @@ h1, h2, h3, h4 { letter-spacing: -0.04em; font-weight: 900; }
     letter-spacing: 0.1em;
     border-radius: 6px;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 2s cubic-bezier(0.16, 1, 0.3, 1);
     text-decoration: none;
-    z-index: 60;
 }
 
 .display-cta:hover { transform: scale(1.05); }
@@ -845,9 +847,8 @@ h1, h2, h3, h4 { letter-spacing: -0.04em; font-weight: 900; }
     letter-spacing: 0.1em;
     text-align: center;
     text-decoration: none;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 2s cubic-bezier(0.16, 1, 0.3, 1);
     margin-top: auto;
-    z-index: 60;
 }
 
 .pricing-cta.primary {
