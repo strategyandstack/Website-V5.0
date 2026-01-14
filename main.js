@@ -1,0 +1,309 @@
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+
+:root {
+    --glass-white: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-blur: 40px;
+    
+    /* Brand Colors */
+    --purple-primary: #A855F7;
+    --purple-glow: rgba(168, 85, 247, 0.3);
+    --cyan-accent: #22D3EE;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background: #000;
+    color: #fff;
+    scroll-behavior: smooth;
+}
+
+.mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Background Ambient Glow */
+.mesh-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    background: #000;
+}
+
+.mesh-gradient {
+    position: absolute;
+    width: 140%;
+    height: 140%;
+    top: -20%;
+    left: -20%;
+    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 0%, transparent 60%);
+    filter: blur(80px);
+}
+
+/* Glassmorphism */
+.glass-card {
+    background: var(--glass-white);
+    backdrop-filter: blur(var(--glass-blur)) saturate(150%);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(150%);
+    border: 1px solid var(--glass-border);
+    transition: border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    letter-spacing: -0.04em;
+    font-weight: 900;
+}
+
+/* Custom Buttons */
+.btn-primary {
+    display: inline-block;
+    background: #fff;
+    color: #000;
+    padding: 1.5rem 3.5rem;
+    border-radius: 1.5rem;
+    font-weight: 900;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 20px 40px -10px rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 60px -10px rgba(255, 255, 255, 0.4);
+    background: #f0f0f0;
+}
+
+.btn-secondary {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 1.5rem 3.5rem;
+    border-radius: 1.5rem;
+    font-weight: 900;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    backdrop-filter: blur(10px);
+    transition: all 0.5s ease;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Email Editor Styles */
+.email-editor-container {
+    position: relative;
+}
+
+.email-editor {
+    position: relative;
+    box-shadow: 
+        0 0 80px rgba(168, 85, 247, 0.1),
+        0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Editor Tabs */
+.editor-tabs {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.editor-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.editor-tab {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 16px;
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.4);
+    border-bottom: 2px solid transparent;
+    background: transparent;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.editor-tab:hover {
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.editor-tab.active {
+    color: #fff;
+    border-bottom-color: var(--purple-primary);
+    background: rgba(168, 85, 247, 0.1);
+}
+
+.editor-tab span:first-child {
+    font-size: 14px;
+}
+
+/* Editor Content */
+.editor-content {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.editor-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.editor-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.editor-content::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.tab-panel {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.tab-panel.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Syntax Highlighting */
+.editor-text {
+    color: #E5E7EB;
+    line-height: 1.8;
+}
+
+.syntax-random {
+    color: var(--purple-primary);
+}
+
+.syntax-variable {
+    color: var(--cyan-accent);
+}
+
+.syntax-pipe {
+    color: #6B7280;
+}
+
+/* Typing Cursor */
+.typing-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.1em;
+    background-color: var(--purple-primary);
+    margin-left: 2px;
+    animation: blink 1s step-end infinite;
+    vertical-align: text-bottom;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Blueprint Numbers - Lighter grey for visibility */
+.blueprint-number {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+/* Roadmap line */
+#next-steps-container::before {
+    content: '';
+    position: absolute;
+    left: 40px;
+    top: 40px;
+    bottom: 40px;
+    width: 1px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.2) 0%, transparent 100%);
+}
+
+@media (max-width: 768px) {
+    #next-steps-container::before {
+        display: none;
+    }
+}
+
+/* Details/Accordion reset */
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Smooth Transitions */
+a, button {
+    cursor: pointer;
+}
+
+::selection {
+    background: #fff;
+    color: #000;
+}
+
+/* Improved contrast for accessibility */
+.text-gray-500 {
+    color: #9CA3AF;
+}
+
+.text-gray-400 {
+    color: #A1A1AA;
+}
+
+/* Mobile responsiveness for email editor */
+@media (max-width: 1024px) {
+    .email-editor-container {
+        display: none;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

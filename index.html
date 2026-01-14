@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Strategy & Stack | Build Your Sales Engine Faster Than Ever</title>
+    <meta name="description" content="Sales Architecture: Five modular blueprints that produce revenue using automation, AI, and battle-tested strategies. 50-70% time savings vs manual approaches.">
+    <meta name="keywords" content="sales automation, LinkedIn outreach, lead generation, B2B marketing, cold email, outbound sales">
+    <meta name="author" content="Strategy & Stack">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://strategyandstack.com/">
+    <meta property="og:title" content="Strategy & Stack | Build Your Sales Engine Faster Than Ever">
+    <meta property="og:description" content="Five modular blueprints that produce revenue using automation, AI, and battle-tested strategies.">
+    <meta property="og:image" content="https://strategyandstack.com/og-image.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://strategyandstack.com/">
+    <meta name="twitter:title" content="Strategy & Stack | Build Your Sales Engine Faster Than Ever">
+    <meta name="twitter:description" content="Five modular blueprints that produce revenue using automation, AI, and battle-tested strategies.">
+    <meta name="twitter:image" content="https://strategyandstack.com/og-image.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://strategyandstack.com/">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <meta name="theme-color" content="#A855F7">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://strategyandstack.com/#organization",
+          "name": "Strategy & Stack",
+          "url": "https://strategyandstack.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://strategyandstack.com/favicon.svg"
+          },
+          "description": "Sales Architecture: Five modular blueprints that produce revenue using automation, AI, and battle-tested strategies.",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "sales",
+            "url": "https://app.apollo.io/#/meet/managed-meetings/eddie/hor-57g-ivh/start"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://strategyandstack.com/#website",
+          "url": "https://strategyandstack.com",
+          "name": "Strategy & Stack",
+          "publisher": {"@id": "https://strategyandstack.com/#organization"}
+        },
+        {
+          "@type": "Service",
+          "@id": "https://strategyandstack.com/#service",
+          "name": "Sales Architecture Blueprints",
+          "provider": {"@id": "https://strategyandstack.com/#organization"},
+          "description": "Five modular blueprints that produce revenue for service businesses.",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Sales Architecture Packages",
+            "itemListElement": [
+              {"@type": "Offer", "name": "Starter Package", "price": "11750", "priceCurrency": "USD"},
+              {"@type": "Offer", "name": "Growth Package", "price": "13750", "priceCurrency": "USD"},
+              {"@type": "Offer", "name": "Full Stack Package", "price": "21000", "priceCurrency": "USD"}
+            ]
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How is this different from hiring an agency?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Agencies charge monthly retainers for ongoing services. We install infrastructure you own. After implementation, you can run it yourself, hire us for maintenance, or bring in anyone else."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What if my industry isn't listed?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We select the closest relevant categories and document the decision. Our frameworks adapt to your specific ICP during the intake process."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do you guarantee email deliverability?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We guarantee correct infrastructure: verified domains, SPF, DKIM, and DMARC configured, plus inboxes warmed to 95%+ deliverability scores. Results depend on your offer and market."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I customize the outreach messages?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, within the framework. You can change the offer, proof points, and calls to action. The structure stays consistent because it's the part that works."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What's the typical investment?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most teams invest between $12k and $21k to install their sales system. Most clients start with Starter or Growth, then upgrade to Full Stack within 30-60 days once the system is live."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="bg-black text-white selection:bg-white/20 overflow-x-hidden">
+
+    <!-- Ambient Lighting -->
+    <div class="mesh-container">
+        <div class="mesh-gradient"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 px-6 py-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center glass-card px-8 py-4 rounded-[2rem] border-white/10">
+            <div class="flex items-center gap-4">
+                <div class="flex flex-col">
+                    <div class="flex items-center gap-2">
+                        <div class="w-7 h-7 rounded-lg flex items-center justify-center overflow-hidden">
+                            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6">
+                                <path d="M50 80L20 62V52L50 70L80 52V62L50 80Z" fill="#A855F7" opacity="0.5"/>
+                                <path d="M50 65L20 47V37L50 55L80 37V47L50 65Z" fill="#A855F7" opacity="0.75"/>
+                                <path d="M50 50L20 32V22L50 40L80 22V32L50 50Z" fill="#A855F7"/>
+                                <path d="M50 12L58 24H53V36H47V24H42L50 12Z" fill="#A855F7"/>
+                            </svg>
+                        </div>
+                        <span class="font-black tracking-tighter text-2xl uppercase">Strategy<span class="opacity-40">&</span>Stack</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden lg:flex gap-12 text-[10px] font-black uppercase tracking-[0.2em] text-white/50">
+                <a href="#blueprints" class="hover:text-white transition-colors">Blueprints</a>
+                <a href="#pricing" class="hover:text-white transition-colors">Packages</a>
+            </div>
+            <a href="https://app.apollo.io/#/meet/managed-meetings/eddie/hor-57g-ivh/start" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-white/90 text-black px-8 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all active:scale-95">
+                Book Strategy Call
+            </a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative pt-40 pb-20 px-6 min-h-[90vh] flex items-center">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+                <div class="hero-content">
+                    <h1 id="hero-headline" class="text-6xl md:text-[5rem] font-black leading-[0.9] mb-8 tracking-tighter">
+                        Build Your Sales Engine Faster Than Ever
+                    </h1>
+                    <p class="text-xl text-gray-500 mb-10 max-w-xl leading-relaxed font-medium">
+                        Sales Architecture: Five modular blueprints that produce revenue using automation, AI, and battle-tested strategies that would traditionally require 7X more time and staff.
+                    </p>
+                    <div class="flex flex-wrap gap-6">
+                        <a href="https://app.apollo.io/#/meet/managed-meetings/eddie/hor-57g-ivh/start" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                            Book a Strategy Call
+                        </a>
+                        <button class="btn-secondary" onclick="document.getElementById('blueprints').scrollIntoView({behavior:'smooth'})">See How It Works</button>
+                    </div>
+                </div>
+                
+                <!-- Interactive Email Editor -->
+                <div class="hero-visual relative lg:flex justify-end hidden">
+                    <div class="email-editor-container w-full max-w-lg">
+                        <div class="email-editor glass-card rounded-[2rem] overflow-hidden border-white/10">
+                            <!-- Window Header -->
+                            <div class="editor-header flex items-center justify-between px-5 py-4 bg-black/40 border-b border-white/10">
+                                <div class="flex items-center gap-3">
+                                    <div class="flex gap-2">
+                                        <span class="w-3 h-3 rounded-full bg-[#ff5f57]"></span>
+                                        <span class="w-3 h-3 rounded-full bg-[#febc2e]"></span>
+                                        <span class="w-3 h-3 rounded-full bg-[#28c840]"></span>
+                                    </div>
+                                    <div class="flex items-center gap-2 ml-4">
+                                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4">
+                                            <path d="M50 80L20 62V52L50 70L80 52V62L50 80Z" fill="#A855F7" opacity="0.5"/>
+                                            <path d="M50 65L20 47V37L50 55L80 37V47L50 65Z" fill="#A855F7" opacity="0.75"/>
+                                            <path d="M50 50L20 32V22L50 40L80 22V32L50 50Z" fill="#A855F7"/>
+                                        </svg>
+                                        <span class="text-white/50 text-xs font-mono">outreach_templates.msg</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Tabs -->
+                            <div class="editor-tabs flex border-b border-white/10 bg-black/20 overflow-x-auto" role="tablist">
+                                <button class="editor-tab active" role="tab" aria-selected="true" data-tab="linkedin">
+                                    <span>🔗</span>
+                                    <span>LinkedIn</span>
+                                </button>
+                                <button class="editor-tab" role="tab" aria-selected="false" data-tab="cold">
+                                    <span>📧</span>
+                                    <span>Cold Email</span>
+                                </button>
+                                <button class="editor-tab" role="tab" aria-selected="false" data-tab="followup">
+                                    <span>🔄</span>
+                                    <span>Follow Up</span>
+                                </button>
+                                <button class="editor-tab" role="tab" aria-selected="false" data-tab="breakup">
+                                    <span>👋</span>
+                                    <span>Break Up</span>
+                                </button>
+                            </div>
+                            
+                            <!-- Editor Content -->
+                            <div class="editor-content p-6 bg-[#0d0d0d] min-h-[280px] max-h-[320px] overflow-y-auto">
+                                <div id="tab-linkedin" class="tab-panel" role="tabpanel">
+                                    <pre class="editor-text font-mono text-sm leading-relaxed whitespace-pre-wrap"></pre>
+                                </div>
+                                <div id="tab-cold" class="tab-panel hidden" role="tabpanel">
+                                    <pre class="editor-text font-mono text-sm leading-relaxed whitespace-pre-wrap"></pre>
+                                </div>
+                                <div id="tab-followup" class="tab-panel hidden" role="tabpanel">
+                                    <pre class="editor-text font-mono text-sm leading-relaxed whitespace-pre-wrap"></pre>
+                                </div>
+                                <div id="tab-breakup" class="tab-panel hidden" role="tabpanel">
+                                    <pre class="editor-text font-mono text-sm leading-relaxed whitespace-pre-wrap"></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <section class="py-16 border-y border-white/5 bg-white/[0.01]">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-12" id="stats-grid"></div>
+            </div>
+        </section>
+
+        <!-- Value Prop -->
+        <section class="py-24 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-8 mb-24" id="value-props"></div>
+
+                <div class="glass-card p-12 md:p-20 rounded-[4rem] relative overflow-hidden border-white/10">
+                    <div class="grid lg:grid-cols-2 gap-20">
+                        <div>
+                            <div class="text-[10px] font-black uppercase tracking-[0.4em] text-white/40 mb-8">Core Guarantee</div>
+                            <h2 class="text-5xl font-black mb-10 tracking-tighter leading-[0.95]">What We Promise</h2>
+                            <ul class="space-y-8" id="guarantees-list"></ul>
+                        </div>
+                        <div class="bg-white/5 rounded-[3rem] p-12 backdrop-blur-3xl border border-white/10 flex flex-col justify-center">
+                            <h3 class="text-2xl font-black mb-8 tracking-tight flex items-center gap-4">
+                                <i data-lucide="activity" class="w-8 h-8 text-white"></i>
+                                Market Dynamics
+                            </h3>
+                            <p class="text-gray-500 mb-10 leading-relaxed italic text-lg font-medium">Certain metrics vary based on market maturity and offer strength:</p>
+                            <ul class="space-y-6" id="market-depends-list"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blueprints -->
+        <section id="blueprints" class="py-24 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-20">
+                    <div class="text-[10px] font-black uppercase tracking-[0.4em] text-white/40 mb-6">The Process</div>
+                    <h2 class="text-6xl font-black mb-8 tracking-tighter uppercase">The Blueprints</h2>
+                    <p class="text-xl text-gray-500 max-w-2xl leading-relaxed font-medium">Modular systems designed to be stacked. We build the architecture, you run the engine.</p>
+                </div>
+                
+                <div class="space-y-32" id="blueprints-container"></div>
+            </div>
+        </section>
+
+        <!-- Pricing Grid -->
+        <section id="pricing" class="py-24 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-20">
+                    <h2 class="text-6xl font-black mb-8 tracking-tighter uppercase">Packages</h2>
+                    <p class="text-xl text-gray-500 max-w-2xl mx-auto font-medium">Select your starting blueprint. High-detail implementation, zero maintenance lock-in.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8" id="pricing-grid"></div>
+            </div>
+        </section>
+
+        <!-- Next Steps -->
+        <section class="py-24 px-6">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-20">
+                    <h2 class="text-5xl font-black mb-6 tracking-tighter uppercase">Launch Roadmap</h2>
+                    <p class="text-xl text-gray-500 font-medium">Zero friction deployment in 5 distinct stages.</p>
+                </div>
+                <div class="space-y-12 relative" id="next-steps-container"></div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="py-24 px-6 bg-white/[0.01]">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-5xl font-black mb-8 tracking-tighter uppercase">Common Questions</h2>
+                    <p class="text-xl text-gray-500 font-medium">Technical and operational clarity on the architecture.</p>
+                </div>
+                <div class="space-y-6" id="faq-container"></div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-24 px-6 mb-12">
+            <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
+                <div class="glass-card p-12 md:p-16 rounded-[3.5rem] border-white/20 group hover:border-white/40 transition-all duration-700">
+                    <h3 class="text-4xl font-black mb-6 tracking-tighter uppercase" id="cta-primary-title"></h3>
+                    <p class="text-lg text-gray-500 mb-12 leading-relaxed font-medium" id="cta-primary-sub"></p>
+                    <a href="https://app.apollo.io/#/meet/managed-meetings/eddie/hor-57g-ivh/start" target="_blank" rel="noopener noreferrer" class="btn-primary w-full text-base py-6 block text-center" id="cta-primary-btn"></a>
+                    <p class="mt-8 text-center text-[10px] uppercase tracking-[0.4em] font-black text-white/30" id="cta-primary-secondary"></p>
+                </div>
+                <div class="glass-card p-12 md:p-16 rounded-[3.5rem] border-white/5 group hover:border-white/20 transition-all duration-700">
+                    <h3 class="text-4xl font-black mb-6 tracking-tighter uppercase" id="cta-secondary-title"></h3>
+                    <p class="text-lg text-gray-500 mb-12 leading-relaxed font-medium" id="cta-secondary-sub"></p>
+                    <a href="https://app.apollo.io/#/meet/managed-meetings/eddie/hor-57g-ivh/start" target="_blank" rel="noopener noreferrer" class="btn-secondary w-full text-base py-6 block text-center" id="cta-secondary-btn"></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-20 px-6 border-t border-white/5">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div class="text-left">
+                <div class="flex items-center gap-2 mb-4">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6">
+                        <path d="M50 80L20 62V52L50 70L80 52V62L50 80Z" fill="#A855F7" opacity="0.5"/>
+                        <path d="M50 65L20 47V37L50 55L80 37V47L50 65Z" fill="#A855F7" opacity="0.75"/>
+                        <path d="M50 50L20 32V22L50 40L80 22V32L50 50Z" fill="#A855F7"/>
+                        <path d="M50 12L58 24H53V36H47V24H42L50 12Z" fill="#A855F7"/>
+                    </svg>
+                    <span class="font-black text-3xl tracking-tighter uppercase">Strategy<span class="opacity-30">&</span>Stack</span>
+                </div>
+                <div class="text-white/40 font-black text-[10px] uppercase tracking-[0.4em] mb-8" id="footer-tagline"></div>
+                <div class="text-[10px] text-white/20 uppercase tracking-[0.5em] font-black" id="footer-powered"></div>
+            </div>
+            <div class="flex flex-col md:items-end gap-8 text-[10px] font-black uppercase tracking-[0.3em] text-white/30">
+                <div class="text-white/10">© 2026 Strategy & Stack</div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
