@@ -32,12 +32,12 @@ body {
     pointer-events: none;
     z-index: 50;
     opacity: 0;
-    transition: backdrop-filter 0.4s ease, opacity 0.4s ease;
+    transition: backdrop-filter 2s ease, -webkit-backdrop-filter 2s ease, opacity 2s ease;
 }
 
 .page-blur-overlay.active {
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     opacity: 1;
 }
 
