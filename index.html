@@ -75,7 +75,7 @@
           "@id": "https://strategyandstack.com/#organization",
           "name": "Strategy & Stack",
           "url": "https://strategyandstack.com",
-          "logo": {"@type": "ImageObject", "url": "https://strategyandstack.com/logo.png", "width": 512, "height": 512},
+          "logo": {"@type": "ImageObject", "url": "https://strategyandstack.com/favicon.svg", "width": 512, "height": 512},
           "description": "Sales Architecture: Five modular blueprints that produce revenue using automation, AI, and battle-tested strategies.",
           "sameAs": [],
           "contactPoint": {"@type": "ContactPoint", "contactType": "sales", "url": "https://app.apollo.io/#/meet/managed-meetings/eddie/hor-57g-ivh/start", "availableLanguage": ["English", "Spanish"]}
@@ -104,58 +104,29 @@
           "@id": "https://strategyandstack.com/#service",
           "name": "Sales Architecture Blueprints",
           "provider": {"@id": "https://strategyandstack.com/#organization"},
-          "description": "Five modular systems: Account Setup, Content, Ads, Outbound, and Process Automation. 70%+ time savings compared to manual approaches.",
-          "serviceType": "B2B Sales Automation",
-          "areaServed": {"@type": "Place", "name": "Worldwide"},
-          "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Sales Architecture Packages",
-            "itemListElement": [
-              {"@type": "Offer", "name": "Account Setup Blueprint", "price": "8125", "priceCurrency": "USD", "description": "Domain setup, email warming, LinkedIn optimization, landing page"},
-              {"@type": "Offer", "name": "Content Blueprint", "price": "2625", "priceCurrency": "USD", "description": "12 weeks of LinkedIn and Instagram content"},
-              {"@type": "Offer", "name": "Ads Blueprint", "price": "7750", "priceCurrency": "USD", "description": "30-day lead generation campaigns on Meta, Google, LinkedIn"},
-              {"@type": "Offer", "name": "Outbound Blueprint", "price": "4875", "priceCurrency": "USD", "description": "90-day outreach to 1,000 qualified leads"},
-              {"@type": "Offer", "name": "Starter Package", "price": "11750", "priceCurrency": "USD", "description": "Account Setup + Outbound"},
-              {"@type": "Offer", "name": "Growth Package", "price": "13750", "priceCurrency": "USD", "description": "Account Setup + Content + Outbound"},
-              {"@type": "Offer", "name": "Full Stack Package", "price": "21000", "priceCurrency": "USD", "description": "All four sales blueprints"}
-            ]
-          }
-        },
-        {
-          "@type": "FAQPage",
-          "@id": "https://strategyandstack.com/#faq",
-          "mainEntity": [
-            {"@type": "Question", "name": "How is this different from hiring an agency?", "acceptedAnswer": {"@type": "Answer", "text": "Agencies charge monthly retainers and own the relationship with your tools. We install infrastructure you own outright. No lock-in, no dependency."}},
-            {"@type": "Question", "name": "What industries do you work with?", "acceptedAnswer": {"@type": "Answer", "text": "B2B service businesses: agencies, consultancies, SaaS companies, professional services firms, and tech-enabled service providers."}},
-            {"@type": "Question", "name": "How long until I see results?", "acceptedAnswer": {"@type": "Answer", "text": "Account Setup takes 2-3 weeks. Outbound generates responses within 2 weeks of going live. Most clients see meaningful pipeline activity within 30-45 days."}},
-            {"@type": "Question", "name": "What's the typical investment?", "acceptedAnswer": {"@type": "Answer", "text": "Most teams invest between $12k and $21k. Starter ($11,750), Growth ($13,750), or Full Stack ($21,000)."}}
-          ]
+          "description": "Modular sales system implementation including account setup, content creation, advertising, outbound campaigns, and process automation.",
+          "serviceType": "B2B Sales Consulting",
+          "areaServed": {"@type": "Place", "name": "Worldwide"}
         }
       ]
     }
     </script>
 </head>
-<body class="bg-black text-white overflow-x-hidden">
+<body class="antialiased">
     <div class="mesh-container"><div class="mesh-gradient"></div></div>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 px-4 py-4">
-        <div class="max-w-6xl mx-auto flex justify-between items-center glass-card px-5 py-2.5 rounded-lg border-white/10">
-            <div class="flex items-center gap-2">
-                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6">
-                    <path d="M50 80L20 62V52L50 70L80 52V62L50 80Z" fill="#A855F7" opacity="0.5"/>
-                    <path d="M50 65L20 47V37L50 55L80 37V47L50 65Z" fill="#A855F7" opacity="0.75"/>
-                    <path d="M50 50L20 32V22L50 40L80 22V32L50 50Z" fill="#A855F7"/>
-                    <path d="M50 12L58 24H53V36H47V24H42L50 12Z" fill="#A855F7"/>
-                </svg>
-                <span class="font-black tracking-tighter text-lg uppercase">Strategy<span class="opacity-40">&</span>Stack</span>
-            </div>
-            <div class="hidden lg:flex items-center gap-8">
-                <div class="flex gap-8 text-[9px] font-black uppercase tracking-[0.15em] text-white/50">
+    <nav class="fixed top-0 left-0 right-0 z-50 px-4 py-4">
+        <div class="glass-card max-w-6xl mx-auto px-5 py-3 rounded-xl border-white/10 flex items-center justify-between">
+            <div class="flex items-center gap-8">
+                <a href="/" class="flex items-center gap-2">
+                    <img src="/favicon.svg" alt="Strategy & Stack" class="w-5 h-5">
+                    <span class="font-black text-lg tracking-tighter uppercase">Strategy<span class="opacity-30">&</span>Stack</span>
+                </a>
+                <div class="hidden lg:flex gap-8 text-[9px] font-black uppercase tracking-[0.15em] text-white/50">
                     <a href="#blueprints" class="nav-link hover:text-white transition-colors">Blueprints</a>
                     <a href="#pricing" class="nav-link hover:text-white transition-colors">Packages</a>
                 </div>
-                <a href="/es/" class="lang-toggle">ES</a>
+                <a href="/es/" class="lang-toggle hidden lg:flex">ES</a>
             </div>
             <div class="flex items-center gap-3">
                 <a href="/es/" class="lang-toggle lg:hidden">ES</a>
@@ -178,7 +149,7 @@
                 </div>
                 <div class="email-editor-container hidden lg:block">
                     <div class="email-editor rounded-xl overflow-hidden border border-white/10">
-                        <div class="flex items-center px-4 py-2.5 bg-black/60 border-b border-white/10">
+                        <div class="flex items-center px-4 py-2.5 bg-[#1a1a1a] border-b border-white/10">
                             <div class="flex gap-1.5 mr-4"><span class="w-2.5 h-2.5 rounded-full bg-[#ff5f57]"></span><span class="w-2.5 h-2.5 rounded-full bg-[#febc2e]"></span><span class="w-2.5 h-2.5 rounded-full bg-[#28c840]"></span></div>
                             <div class="editor-tabs flex overflow-x-auto" role="tablist">
                                 <button class="editor-tab active" role="tab" aria-selected="true" data-tab="linkedin"><span>🔗</span> LinkedIn</button>
@@ -198,7 +169,7 @@
             </div>
         </section>
 
-        <section class="py-10 border-y border-white/5 bg-white/[0.01]"><div class="max-w-4xl mx-auto px-4"><div class="grid grid-cols-3 gap-8" id="stats-grid"></div></div></section>
+        <section id="stats-section" class="py-10 border-y border-white/5 bg-white/[0.01]"><div class="max-w-4xl mx-auto px-4"><div class="grid grid-cols-3 gap-8" id="stats-grid"></div></div></section>
 
         <section class="py-16 px-4">
             <div class="max-w-6xl mx-auto">
@@ -233,7 +204,7 @@
         <section class="py-16 px-4 mb-8">
             <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-5">
                 <div class="glass-card p-10 rounded-2xl border-white/15 group hover:border-white/30 transition-all section-reveal"><h3 class="text-2xl md:text-3xl font-black mb-4 tracking-tighter uppercase" id="cta-primary-title"></h3><p class="text-sm text-gray-400 mb-8 leading-relaxed" id="cta-primary-sub"></p><a href="https://app.apollo.io/#/meet/managed-meetings/eddie/hor-57g-ivh/start" target="_blank" rel="noopener noreferrer" class="btn-primary w-full text-center block" id="cta-primary-btn"></a><p class="mt-5 text-center text-[9px] uppercase tracking-[0.25em] font-black text-white/30" id="cta-primary-secondary"></p></div>
-                <div class="glass-card p-10 rounded-2xl border-white/5 group hover:border-white/15 transition-all section-reveal"><h3 class="text-2xl md:text-3xl font-black mb-4 tracking-tighter uppercase" id="cta-secondary-title"></h3><p class="text-sm text-gray-400 mb-8 leading-relaxed" id="cta-secondary-sub"></p><a href="https://app.apollo.io/#/meet/managed-meetings/eddie/hor-57g-ivh/start" target="_blank" rel="noopener noreferrer" class="btn-secondary w-full text-center block" id="cta-secondary-btn"></a></div>
+                <div id="cta-secondary-card" class="glass-card p-10 rounded-2xl border-white/5 group hover:border-white/15 transition-all section-reveal"><h3 class="text-2xl md:text-3xl font-black mb-4 tracking-tighter uppercase" id="cta-secondary-title"></h3><p class="text-sm text-gray-400 mb-8 leading-relaxed" id="cta-secondary-sub"></p><a href="https://app.apollo.io/#/meet/managed-meetings/eddie/hor-57g-ivh/start" target="_blank" rel="noopener noreferrer" class="btn-secondary w-full text-center block" id="cta-secondary-btn"></a></div>
             </div>
         </section>
     </main>
@@ -241,7 +212,10 @@
     <footer class="py-12 px-4 border-t border-white/5">
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
             <div>
-                <div class="flex items-center gap-2 mb-3"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"><path d="M50 80L20 62V52L50 70L80 52V62L50 80Z" fill="#A855F7" opacity="0.5"/><path d="M50 65L20 47V37L50 55L80 37V47L50 65Z" fill="#A855F7" opacity="0.75"/><path d="M50 50L20 32V22L50 40L80 22V32L50 50Z" fill="#A855F7"/><path d="M50 12L58 24H53V36H47V24H42L50 12Z" fill="#A855F7"/></svg><span class="font-black text-xl tracking-tighter uppercase">Strategy<span class="opacity-30">&</span>Stack</span></div>
+                <div class="flex items-center gap-2 mb-3">
+                    <img src="/favicon.svg" alt="Strategy & Stack" class="w-5 h-5">
+                    <span class="font-black text-xl tracking-tighter uppercase">Strategy<span class="opacity-30">&</span>Stack</span>
+                </div>
                 <div class="text-white/40 font-black text-[9px] uppercase tracking-[0.25em] mb-4" id="footer-tagline"></div>
                 <div class="text-[8px] text-white/20 uppercase tracking-[0.15em] font-bold" id="footer-powered"></div>
             </div>
