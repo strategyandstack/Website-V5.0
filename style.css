@@ -3,7 +3,7 @@
 :root {
     --glass-white: rgba(255, 255, 255, 0.05);
     --glass-border: rgba(255, 255, 255, 0.10);
-    --glass-blur: 40px;
+    --glass-blur: 20px;
     --purple-primary: #A855F7;
     --purple-glow: rgba(168, 85, 247, 0.4);
     --cyan-accent: #22D3EE;
@@ -95,8 +95,8 @@ body:hover .mouse-glow { opacity: 1; }
 /* Glassmorphism */
 .glass-card {
     background: var(--glass-white);
-    backdrop-filter: blur(var(--glass-blur)) saturate(150%);
-    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(150%);
+    backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
     border: 1px solid var(--glass-border);
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -108,9 +108,9 @@ nav { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
 nav .glass-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
 
 nav.scrolled .glass-card {
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(30px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    background: rgba(10, 10, 10, 0.5);
+    backdrop-filter: blur(20px) saturate(200%);
+    -webkit-backdrop-filter: blur(20px) saturate(200%);
     border-color: rgba(255, 255, 255, 0.1);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
@@ -437,9 +437,10 @@ h1, h2, h3, h4 { letter-spacing: -0.04em; font-weight: 900; }
     height: fit-content;
     border-radius: 14px;
     padding: 32px;
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(40px);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     overflow: hidden;
     min-height: 440px;
 }
@@ -726,11 +727,11 @@ h1, h2, h3, h4 { letter-spacing: -0.04em; font-weight: 900; }
     height: 100%;
     padding: 28px;
     border-radius: 14px;
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.06);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
 }
 
 .pricing-card:hover {
@@ -900,12 +901,12 @@ h1, h2, h3, h4 { letter-spacing: -0.04em; font-weight: 900; }
 
 .faq-item {
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.06);
     overflow: hidden;
     position: relative;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
 }
 
 .faq-item::before {
@@ -1030,8 +1031,9 @@ details[open] .faq-icon { transform: rotate(180deg); }
     left: 0;
     right: 0;
     padding: 12px 16px;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(20px);
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 100;
     transform: translateY(100%);
