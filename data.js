@@ -172,28 +172,48 @@ export const salesArchitectureData = {
   "faq": [
     {
       "question": "How is this different from hiring an agency?",
-      "answer": "Agencies charge monthly retainers for ongoing services. We install infrastructure you own. After implementation, you can run it yourself, hire us for maintenance, or bring in anyone else."
+      "answer": "Agencies charge monthly retainers for ongoing services and own the relationship with your tools and data. We install infrastructure you own outright. After implementation, you can run it yourself, hire us for maintenance, or bring in anyone else. There's no lock-in and no dependency."
     },
     {
-      "question": "What if my industry isn't listed?",
-      "answer": "We select the closest relevant categories and document the decision. Our frameworks adapt to your specific ICP during the intake process."
+      "question": "What industries do you work with?",
+      "answer": "We work primarily with B2B service businesses: agencies, consultancies, SaaS companies, professional services firms (legal, accounting, financial advisory), and tech-enabled service providers. If you sell to other businesses and have a defined ideal customer profile, the system works."
     },
     {
       "question": "How do you guarantee email deliverability?",
-      "answer": "We guarantee correct infrastructure: verified domains, SPF, DKIM, and DMARC configured, plus inboxes warmed to 95%+ deliverability scores. Results depend on your offer and market."
+      "answer": "We guarantee correct infrastructure: verified domains, SPF, DKIM, and DMARC configured, plus inboxes warmed to 95%+ deliverability scores before any outreach begins. We monitor deliverability throughout the engagement. Actual response rates depend on your offer, market, and targeting."
     },
     {
       "question": "Can I customize the outreach messages?",
-      "answer": "Yes, within the framework. You can change the offer, proof points, and calls to action. The structure stays consistent because it's the part that works."
+      "answer": "Yes, within the proven framework. You control the offer, proof points, tone, and calls to action. The sequence structure, timing, and follow-up cadence stay consistent because that's what drives results. We'll work with you during onboarding to dial in messaging that sounds like you."
     },
     {
       "question": "What's the typical investment?",
-      "answer": "Most teams invest between $12k and $21k to install their sales system. Most clients start with Starter or Growth, then upgrade to Full Stack within 30 to 60 days once the system is live."
+      "answer": "Most teams invest between $12k and $21k to install their sales system. The Starter package ($11,750) is right for testing outbound with proper infrastructure. Growth ($13,750) adds content for credibility. Full Stack ($21,000) includes paid ads. Most clients start with Starter or Growth, then expand within 30 to 60 days."
+    },
+    {
+      "question": "How long until I see results?",
+      "answer": "Account Setup takes 2 to 3 weeks for domain warming and profile optimization. Once live, outbound campaigns typically generate responses within the first 2 weeks. Content builds momentum over 4 to 6 weeks. Ads can drive traffic immediately once launched. Most clients see meaningful pipeline activity within 30 to 45 days of going live."
+    },
+    {
+      "question": "What do I need to provide?",
+      "answer": "Access to your LinkedIn accounts (or we help you create new ones), your ideal customer profile, basic company information for messaging, and approval on content before it goes live. We handle everything else: domain setup, technical configuration, content creation, and campaign management."
+    },
+    {
+      "question": "What happens after the blueprints are delivered?",
+      "answer": "You own everything. All accounts, domains, content, and data stay with you. You can continue running the systems yourself, hire us for ongoing management, or bring in your own team. We provide documentation and training so you're never dependent on us to keep things running."
+    },
+    {
+      "question": "Do you offer ongoing management?",
+      "answer": "Yes. After initial implementation, we offer monthly management packages for clients who want hands-off operation. This includes campaign optimization, content publishing, deliverability monitoring, and performance reporting. Pricing depends on scope and is discussed after the initial blueprints are complete."
+    },
+    {
+      "question": "What if it doesn't work for my business?",
+      "answer": "We're transparent about what we control and what depends on market conditions. We guarantee the work gets done correctly: infrastructure configured, campaigns launched, content published. Response rates and conversions depend on your offer, market, and timing. We'll work with you to optimize, but we don't guarantee specific revenue outcomes."
     }
   ],
   "social_proof": {
     "stats": [
-      {"metric": "Time Savings", "value": "70", "suffix": "%"},
+      {"metric": "Time Savings", "value": "70", "suffix": "%+"},
       {"metric": "Faster Than DIY", "value": "7", "suffix": "x"},
       {"metric": "Deliverability Target", "value": "95", "suffix": "%+"}
     ]
