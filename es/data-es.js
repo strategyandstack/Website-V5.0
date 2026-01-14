@@ -1,7 +1,7 @@
 export const salesArchitectureData = {
   "meta": {
     "name": "Strategy & Stack",
-    "version": "4.0",
+    "version": "5.0",
     "tagline": "Construye Tu Motor de Ventas Más Rápido Que Nunca",
     "website": "StrategyandStack.com",
     "powered_by": "LinkedIn Success Formula + AuthGen + RocketsTraffic + Evil Genius Corp"
