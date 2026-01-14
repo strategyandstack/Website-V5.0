@@ -4,7 +4,8 @@ import {
     createBlueprintNavItem,
     createBlueprintDisplay,
     createPricingCard, 
-    createStatItem
+    createStatItem,
+    createRoadmapItem
 } from './components.js';
 
 const emailTemplates = {
@@ -60,7 +61,7 @@ P.S. {{RANDOM | No pitch on the call | This isn't a sales call | Just a quick st
 {{RANDOM | {{senderName}} | All the best, {{senderName}} | Cheers, {{senderName}}}}`
 };
 
-// State management
+// State
 let currentBlueprintIndex = 0;
 let typingInterval = null;
 let isTyping = false;
@@ -71,28 +72,23 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavScroll();
     initEmailEditor();
     initBlueprintInteraction();
+    initMobileBlueprintScroll();
+    initRoadmapAnimation();
     initAnimations();
     initStatsCounter();
     lucide.createIcons();
 });
 
-// Navigation scroll effect
 function initNavScroll() {
     const nav = document.querySelector('nav');
     if (!nav) return;
     
-    let lastScroll = 0;
-    
     window.addEventListener('scroll', () => {
-        const currentScroll = window.scrollY;
-        
-        if (currentScroll > 50) {
+        if (window.scrollY > 50) {
             nav.classList.add('scrolled');
         } else {
             nav.classList.remove('scrolled');
         }
-        
-        lastScroll = currentScroll;
     }, { passive: true });
 }
 
@@ -115,7 +111,7 @@ function initLayout() {
             const li = document.createElement('li');
             li.className = 'flex items-start gap-5 text-gray-400 group';
             li.innerHTML = `
-                <div class="w-7 h-7 rounded-xl bg-white/5 flex items-center justify-center shrink-0 border border-white/10 group-hover:bg-white group-hover:border-white transition-all">
+                <div class="w-7 h-7 rounded-lg bg-white/5 flex items-center justify-center shrink-0 border border-white/10 group-hover:bg-white group-hover:border-white transition-all">
                     <i data-lucide="check" class="w-4 h-4 text-white group-hover:text-black"></i>
                 </div>
                 <span class="text-lg font-medium leading-tight group-hover:text-white transition-colors">${item}</span>
@@ -124,15 +120,19 @@ function initLayout() {
         });
     }
 
-    // Market Depends
+    // Market Dynamics - Redesigned
     const mList = document.getElementById('market-depends-list');
     if (mList) {
-        data.guarantee.what_depends_on_market.forEach(item => {
-            const li = document.createElement('li');
-            li.className = 'flex items-start gap-4 text-gray-400 font-bold text-sm uppercase tracking-wide';
-            li.innerHTML = `<i data-lucide="minus" class="w-5 h-5 text-white/20 shrink-0"></i> <span>${item}</span>`;
-            mList.appendChild(li);
-        });
+        mList.innerHTML = `
+            <div class="market-dynamics">
+                <div class="market-dynamics-label">Results vary by market</div>
+                <div class="market-dynamics-list">
+                    ${data.guarantee.what_depends_on_market.map(item => 
+                        `<span class="market-dynamics-item">${item}</span>`
+                    ).join('')}
+                </div>
+            </div>
+        `;
     }
 
     // Stats
@@ -143,10 +143,9 @@ function initLayout() {
         });
     }
 
-    // Blueprints - New interactive layout
+    // Blueprints
     const blueprintContainer = document.getElementById('blueprints-container');
     if (blueprintContainer) {
-        // Create the dashboard layout
         let navItems = '';
         data.blueprints.forEach((bp, index) => {
             navItems += createBlueprintNavItem(bp, index === 0);
@@ -154,8 +153,20 @@ function initLayout() {
         
         blueprintContainer.innerHTML = `
             <div class="blueprint-dashboard">
-                <div class="blueprint-nav">
-                    ${navItems}
+                <div class="blueprint-nav-wrapper">
+                    <div class="blueprint-nav">
+                        ${navItems}
+                    </div>
+                    <div class="scroll-hint scroll-hint-left">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </div>
+                    <div class="scroll-hint scroll-hint-right">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
                 </div>
                 <div class="blueprint-display" id="blueprint-display">
                     ${createBlueprintDisplay(data.blueprints[0])}
@@ -172,20 +183,11 @@ function initLayout() {
         });
     }
 
-    // Next Steps
+    // Next Steps / Roadmap
     const roadmapContainer = document.getElementById('next-steps-container');
     if (roadmapContainer) {
         data.next_steps.forEach((step, idx) => {
-            roadmapContainer.innerHTML += `
-                <div class="flex md:items-center gap-8 group relative">
-                    <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center font-black text-white text-xl z-10 group-hover:bg-white group-hover:text-black transition-all duration-500">
-                        ${idx + 1}
-                    </div>
-                    <div class="flex-grow glass-card p-8 md:p-10 rounded-[2.5rem] border-white/5 group-hover:border-white/20 transition-all duration-500">
-                        <p class="text-lg font-bold tracking-tight">${step}</p>
-                    </div>
-                </div>
-            `;
+            roadmapContainer.innerHTML += createRoadmapItem(step, idx);
         });
     }
 
@@ -194,12 +196,12 @@ function initLayout() {
     if (faqContainer) {
         data.faq.forEach(item => {
             faqContainer.innerHTML += `
-                <details class="faq-item glass-card rounded-[2rem] overflow-hidden border border-white/5">
-                    <summary class="p-8 cursor-pointer font-black text-xs uppercase tracking-[0.3em] list-none flex justify-between items-center group transition-colors hover:text-white text-white/50">
+                <details class="faq-item glass-card rounded-[1rem] overflow-hidden border border-white/5">
+                    <summary class="p-6 cursor-pointer font-black text-xs uppercase tracking-[0.2em] list-none flex justify-between items-center group transition-colors hover:text-white text-white/50">
                         <span>${item.question}</span>
                         <i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-500 text-white"></i>
                     </summary>
-                    <div class="px-8 pb-8 text-gray-400 leading-relaxed text-base font-medium border-t border-white/5 pt-8">
+                    <div class="px-6 pb-6 text-gray-400 leading-relaxed text-sm font-medium border-t border-white/5 pt-6">
                         ${item.answer}
                     </div>
                 </details>
@@ -224,7 +226,55 @@ function initLayout() {
     }
 }
 
-// Blueprint interaction with animations
+// Mobile blueprint scroll hints
+function initMobileBlueprintScroll() {
+    const wrapper = document.querySelector('.blueprint-nav-wrapper');
+    const nav = document.querySelector('.blueprint-nav');
+    
+    if (!wrapper || !nav) return;
+    
+    const updateScrollState = () => {
+        const scrollLeft = nav.scrollLeft;
+        const maxScroll = nav.scrollWidth - nav.clientWidth;
+        
+        if (scrollLeft > 10) {
+            wrapper.classList.add('scrolled-start');
+        } else {
+            wrapper.classList.remove('scrolled-start');
+        }
+        
+        if (scrollLeft >= maxScroll - 10) {
+            wrapper.classList.add('scrolled-end');
+        } else {
+            wrapper.classList.remove('scrolled-end');
+        }
+    };
+    
+    nav.addEventListener('scroll', updateScrollState, { passive: true });
+    updateScrollState();
+}
+
+// Roadmap scroll animation
+function initRoadmapAnimation() {
+    const items = document.querySelectorAll('.roadmap-item');
+    if (items.length === 0) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                const delay = parseInt(entry.target.dataset.index) * 100;
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, delay);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+    
+    items.forEach(item => observer.observe(item));
+}
+
+// Blueprint interaction
 function initBlueprintInteraction() {
     const navItems = document.querySelectorAll('.blueprint-nav-item');
     const display = document.getElementById('blueprint-display');
@@ -236,11 +286,9 @@ function initBlueprintInteraction() {
             const index = parseInt(item.dataset.blueprintIndex);
             if (index === currentBlueprintIndex) return;
             
-            // Update nav active state
             navItems.forEach(n => n.classList.remove('active'));
             item.classList.add('active');
             
-            // Load new blueprint with animations
             loadBlueprint(index);
         });
     });
@@ -256,28 +304,122 @@ function loadBlueprint(index) {
     
     // Trigger scan animation
     display.classList.remove('scanning');
-    void display.offsetWidth; // Force reflow
+    void display.offsetWidth;
     display.classList.add('scanning');
     
     // Update content
     display.innerHTML = createBlueprintDisplay(bp);
     
-    // Scramble title animation
+    // Animate all elements
+    animateBlueprintContent(bp);
+    
+    lucide.createIcons();
+}
+
+// Combined animations for blueprint content
+function animateBlueprintContent(bp) {
+    const display = document.getElementById('blueprint-display');
+    
+    // Scramble the title
     const titleElement = display.querySelector('.display-title');
     if (titleElement) {
         scrambleText(titleElement, `${bp.name.toUpperCase()} BLUEPRINT`);
     }
     
-    // Reinitialize icons
-    lucide.createIcons();
+    // Fade in description and timeline
+    const fadeElements = display.querySelectorAll('.display-description, .display-timeline');
+    fadeElements.forEach((el, i) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(10px)';
+        setTimeout(() => {
+            el.style.transition = 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+        }, 100 + (i * 50));
+    });
+    
+    // Animate hours with count-up effect
+    const hoursElements = display.querySelectorAll('.hours-value');
+    hoursElements.forEach((el, i) => {
+        const value = el.dataset.value;
+        el.style.opacity = '0';
+        setTimeout(() => {
+            el.style.opacity = '1';
+            if (value && !isNaN(parseInt(value))) {
+                animateNumber(el, parseInt(value));
+            } else {
+                // For "Ongoing" or "Automated" text, just fade in
+                el.style.transition = 'opacity 0.3s ease';
+            }
+        }, 200 + (i * 100));
+    });
+    
+    // Slide in hours boxes
+    const hoursBoxes = display.querySelectorAll('.hours-box');
+    hoursBoxes.forEach((el, i) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateX(-20px)';
+        setTimeout(() => {
+            el.style.transition = 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+            el.style.opacity = '1';
+            el.style.transform = 'translateX(0)';
+        }, 150 + (i * 75));
+    });
+    
+    // Stagger fade in features
+    const features = display.querySelectorAll('.feature-list li');
+    features.forEach((el, i) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(10px)';
+        setTimeout(() => {
+            el.style.transition = 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+        }, 300 + (i * 40));
+    });
+    
+    // Fade in footer
+    const footer = display.querySelector('.display-footer');
+    if (footer) {
+        footer.style.opacity = '0';
+        setTimeout(() => {
+            footer.style.transition = 'opacity 0.5s ease';
+            footer.style.opacity = '1';
+        }, 500);
+    }
+}
+
+// Number count-up animation
+function animateNumber(element, target) {
+    const suffix = element.textContent.includes('Hours') ? ' Hours' : '';
+    const duration = 600;
+    const start = 0;
+    const startTime = performance.now();
+    
+    const animate = (currentTime) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(start + (target - start) * easeOut);
+        
+        element.textContent = current + suffix;
+        
+        if (progress < 1) {
+            requestAnimationFrame(animate);
+        } else {
+            element.textContent = target + suffix;
+        }
+    };
+    
+    requestAnimationFrame(animate);
 }
 
 // Text scramble animation
 function scrambleText(element, targetText) {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     let iteration = 0;
-    const duration = 600; // ms
-    const interval = 30; // ms per frame
+    const duration = 500;
+    const interval = 25;
     const totalIterations = duration / interval;
     
     const scrambleInterval = setInterval(() => {
@@ -296,27 +438,24 @@ function scrambleText(element, targetText) {
     }, interval);
 }
 
-// Email Editor with improved typing animation
+// Email Editor
 function initEmailEditor() {
     const tabs = document.querySelectorAll('.editor-tab');
     const panels = document.querySelectorAll('.tab-panel');
     
     if (tabs.length === 0) return;
 
-    // Pre-render all panels with highlighted syntax (hidden)
     Object.keys(emailTemplates).forEach(tabName => {
         const panel = document.getElementById(`tab-${tabName}`);
         if (panel) {
             const textElement = panel.querySelector('.editor-text');
             if (textElement) {
-                // Store the full highlighted content as data attribute
                 textElement.dataset.fullContent = highlightSyntax(emailTemplates[tabName]);
                 textElement.innerHTML = '<span class="typing-cursor"></span>';
             }
         }
     });
 
-    // Start typing animation for first tab after a short delay
     requestAnimationFrame(() => {
         setTimeout(() => typeText('linkedin'), 300);
     });
@@ -325,10 +464,8 @@ function initEmailEditor() {
         tab.addEventListener('click', () => {
             const tabName = tab.dataset.tab;
             
-            // Stop any current typing
             stopTyping();
             
-            // Update tab states
             tabs.forEach(t => {
                 t.classList.remove('active');
                 t.setAttribute('aria-selected', 'false');
@@ -336,12 +473,10 @@ function initEmailEditor() {
             tab.classList.add('active');
             tab.setAttribute('aria-selected', 'true');
             
-            // Update panel visibility
             panels.forEach(p => p.classList.add('hidden'));
             const activePanel = document.getElementById(`tab-${tabName}`);
             if (activePanel) {
                 activePanel.classList.remove('hidden');
-                // Small delay to ensure DOM is ready
                 requestAnimationFrame(() => {
                     typeText(tabName);
                 });
@@ -372,20 +507,17 @@ function typeText(tabName) {
     
     isTyping = true;
     
-    // Get the full highlighted HTML
     const highlightedText = highlightSyntax(template);
     
-    // Get plain text for character counting
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = highlightedText;
     const plainText = tempDiv.textContent || tempDiv.innerText;
     
-    // Reset content with cursor
     textElement.innerHTML = '<span class="typing-cursor"></span>';
     
     let charIndex = 0;
-    const typingSpeed = 6; // ms per character (faster)
-    const charsPerFrame = 2; // Type multiple characters per frame for speed
+    const typingSpeed = 5;
+    const charsPerFrame = 3;
     
     typingInterval = setInterval(() => {
         if (!isTyping) {
@@ -396,17 +528,14 @@ function typeText(tabName) {
         charIndex += charsPerFrame;
         
         if (charIndex >= plainText.length) {
-            // Typing complete
             textElement.innerHTML = highlightedText + '<span class="typing-cursor"></span>';
             stopTyping();
             
-            // Remove cursor after delay
             setTimeout(() => {
                 const cursor = textElement.querySelector('.typing-cursor');
                 if (cursor) cursor.style.opacity = '0';
             }, 2000);
         } else {
-            // Show partial text
             const partialText = getPartialHighlightedText(highlightedText, charIndex);
             textElement.innerHTML = partialText + '<span class="typing-cursor"></span>';
         }
@@ -421,7 +550,6 @@ function getPartialHighlightedText(html, charCount) {
     while (i < html.length && visibleChars < charCount) {
         const char = html[i];
         
-        // Handle HTML tags
         if (char === '<') {
             const tagEnd = html.indexOf('>', i);
             if (tagEnd !== -1) {
@@ -431,7 +559,6 @@ function getPartialHighlightedText(html, charCount) {
             }
         }
         
-        // Handle HTML entities
         if (char === '&') {
             const semicolon = html.indexOf(';', i);
             if (semicolon !== -1 && semicolon - i < 10) {
@@ -447,7 +574,6 @@ function getPartialHighlightedText(html, charCount) {
         i++;
     }
     
-    // Close any open span tags
     const openSpans = (result.match(/<span[^>]*>/g) || []).length;
     const closeSpans = (result.match(/<\/span>/g) || []).length;
     for (let j = 0; j < openSpans - closeSpans; j++) {
@@ -463,7 +589,6 @@ function highlightSyntax(text) {
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;');
     
-    // Highlight {{RANDOM | ... }} tokens
     escaped = escaped.replace(/\{\{RANDOM\s*\|([^}]+)\}\}/g, (match, content) => {
         const parts = content.split('|').map(p => p.trim());
         const highlightedParts = parts.map((part, i) => {
@@ -475,7 +600,6 @@ function highlightSyntax(text) {
         return `<span class="syntax-random">{{RANDOM |</span> ${highlightedParts} <span class="syntax-random">}}</span>`;
     });
     
-    // Highlight remaining {{variable}} tokens
     escaped = escaped.replace(/\{\{(\w+)\}\}/g, '<span class="syntax-variable">{{$1}}</span>');
     
     return escaped;
@@ -528,7 +652,6 @@ function initAnimations() {
         ease: 'expo.out'
     });
     
-    // Blueprint section animation
     gsap.from('.blueprint-dashboard', {
         scrollTrigger: {
             trigger: '.blueprint-dashboard',
