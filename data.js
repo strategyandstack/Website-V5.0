@@ -195,8 +195,7 @@ export const salesArchitectureData = {
     "stats": [
       {"metric": "Time Savings", "value": "70", "suffix": "%"},
       {"metric": "Faster Than DIY", "value": "7", "suffix": "x"},
-      {"metric": "Deliverability Target", "value": "95", "suffix": "%+"},
-      {"metric": "Validation Checks", "value": "17", "suffix": ""}
+      {"metric": "Deliverability Target", "value": "95", "suffix": "%+"}
     ]
   },
   "cta_sections": {
