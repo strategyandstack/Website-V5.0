@@ -48,8 +48,8 @@ export const salesArchitectureData = {
         "1 conversion-focused landing page"
       ],
       "comparison": {
-        "manual_hours": "120+",
-        "blueprint_hours": "35"
+        "manual_hours": 120,
+        "blueprint_hours": 35
       }
     },
     {
@@ -67,8 +67,8 @@ export const salesArchitectureData = {
         "A reusable content calendar and posting system"
       ],
       "comparison": {
-        "manual_hours": "80+",
-        "blueprint_hours": "15"
+        "manual_hours": 80,
+        "blueprint_hours": 15
       }
     },
     {
@@ -86,8 +86,8 @@ export const salesArchitectureData = {
         "Clear performance reporting and next-step recommendations"
       ],
       "comparison": {
-        "manual_hours": "60 to 80+",
-        "blueprint_hours": "23"
+        "manual_hours": 70,
+        "blueprint_hours": 23
       }
     },
     {
@@ -105,8 +105,8 @@ export const salesArchitectureData = {
         "Live reporting dashboard with defined KPIs"
       ],
       "comparison": {
-        "manual_hours": "170 to 230+",
-        "blueprint_hours": "26"
+        "manual_hours": 200,
+        "blueprint_hours": 26
       }
     },
     {
@@ -126,8 +126,8 @@ export const salesArchitectureData = {
         "Document generation from templates"
       ],
       "comparison": {
-        "manual_hours": "Ongoing",
-        "blueprint_hours": "Automated"
+        "manual_hours": null,
+        "blueprint_hours": null
       }
     }
   ],
@@ -144,7 +144,7 @@ export const salesArchitectureData = {
     {
       "id": "growth",
       "name": "Growth",
-      "tagline": "Account Setup + Content + Outbound",
+      "tagline": "Setup + Content + Outbound",
       "price": "$13,750",
       "description": "For teams that want credibility and trust supporting outbound",
       "includes": ["Account Setup Blueprint", "Content Blueprint (12 weeks)", "Outbound Blueprint (90 days)"],
@@ -166,7 +166,7 @@ export const salesArchitectureData = {
       "tagline": "Full Stack + Process Automation",
       "price": "Custom",
       "description": "For established businesses ready to scale with systems",
-      "includes": ["Everything in Full Stack", "Custom process automation", "Advanced routing, dashboards, and integrations", "Revenue share option for qualified businesses"]
+      "includes": ["Everything in Full Stack", "Custom process automation", "Advanced routing and integrations", "Revenue share option available"]
     }
   ],
   "faq": [
