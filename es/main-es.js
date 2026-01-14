@@ -517,5 +517,5 @@ function initAnimations() {
     gsap.from('#hero-headline', { opacity: 0, y: 50, duration: 1.2, ease: 'expo.out' });
     gsap.from('.hero-content p, .hero-content .flex', { opacity: 0, y: 25, duration: 1, stagger: 0.1, delay: 0.2, ease: 'power3.out' });
     gsap.from('.email-editor', { opacity: 0, scale: 0.96, duration: 1, delay: 0.4, ease: 'expo.out' });
-    gsap.from('.blueprint-dashboard', { scrollTrigger: { trigger: '.blueprint-dashboard', start: 'top 85%' }, opacity: 0, y: 30, duration: 0.8, ease: 'expo.out' });
+    // Removed blueprint-dashboard animation - conflicts with section-reveal CSS
 }
