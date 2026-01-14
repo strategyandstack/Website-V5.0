@@ -1,0 +1,14 @@
+/* TEAM */
+Strategy & Stack
+Site: https://strategyandstack.com
+Location: Global
+
+/* THANKS */
+Powered by: LinkedIn Success Formula + AuthGen + RocketsTraffic + Evil Genius Corp
+
+/* SITE */
+Last update: 2026-01-14
+Language: English, Spanish
+Standards: HTML5, CSS3, ES6+
+Components: Tailwind CSS, GSAP, Lucide Icons
+Fonts: SF Pro Display

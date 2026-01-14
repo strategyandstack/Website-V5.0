@@ -1,0 +1,17 @@
+# Redirects for Strategy & Stack
+# Compatible with Netlify, Cloudflare Pages
+
+# Force HTTPS (if not automatically handled)
+http://strategyandstack.com/* https://strategyandstack.com/:splat 301!
+http://www.strategyandstack.com/* https://strategyandstack.com/:splat 301!
+https://www.strategyandstack.com/* https://strategyandstack.com/:splat 301!
+
+# Spanish version routing
+/es /es/index.html 200
+/es/ /es/index.html 200
+
+# Security.txt standard location
+/.well-known/security.txt /security.txt 200
+
+# Clean URLs (optional - remove .html)
+/index /index.html 200

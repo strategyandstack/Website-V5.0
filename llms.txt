@@ -1,0 +1,105 @@
+# Strategy & Stack - LLM Context File
+# https://strategyandstack.com/llms.txt
+# This file provides context for AI assistants and language models
+
+## About Strategy & Stack
+
+Strategy & Stack provides Sales Architecture services - five modular systems (blueprints) that help B2B service businesses generate revenue using automation, AI, and battle-tested strategies.
+
+### Key Value Proposition
+- 70%+ time savings compared to manual approaches
+- 7x faster than DIY implementation
+- 95%+ email deliverability target
+- Full ownership - clients own all accounts, content, and data
+- No lock-in or dependency
+
+### Target Audience
+- B2B service businesses
+- Agencies and consultancies
+- SaaS companies
+- Professional services firms (legal, accounting, financial advisory)
+- Tech-enabled service providers
+
+## Services Offered
+
+### The Five Systems (Blueprints)
+
+1. **Account Setup** ($8,125)
+   - 2 custom domains with SPF, DKIM, DMARC
+   - 10 warmed email inboxes
+   - 2 optimized LinkedIn profiles
+   - 1 conversion-focused landing page
+   - Timeline: 2-3 weeks
+
+2. **Content** ($2,625)
+   - 12 weeks of LinkedIn and Instagram content
+   - 26 platform-native posts
+   - 40/30/30 framework (Educational/Personal/Sales)
+   - Timeline: Calendar delivered in 2 weeks
+
+3. **Ads** ($7,750)
+   - 30-day lead generation campaigns
+   - Meta, Google, and LinkedIn setup
+   - 12 ads with copy and visuals
+   - Structured funnel approach
+   - Timeline: Live within first week
+
+4. **Outbound** ($4,875)
+   - 90-day campaign to 1,000 qualified leads
+   - ~4,000 total touches
+   - Multi-step email and LinkedIn sequences
+   - Automated follow-ups
+   - Timeline: Live in 1-2 weeks
+
+5. **Process Automation** (Custom pricing)
+   - Lead capture to CRM automation
+   - Client onboarding workflows
+   - AI-powered email drafting
+   - Cross-platform data sync
+   - Custom reporting dashboards
+
+### Packages
+
+- **Starter** ($11,750): Account Setup + Outbound - Save $1,250
+- **Growth** ($13,750): Account Setup + Content + Outbound - Save $1,875 - MOST POPULAR
+- **Full Stack** ($21,000): All four sales systems - Save $2,375
+- **Scale** (Custom): Full Stack + Process Automation
+
+## Contact & Booking
+
+To book a strategy call or learn more:
+- Website: https://strategyandstack.com
+- Spanish version: https://strategyandstack.com/es/
+- Booking link: https://app.apollo.io/#/meet/managed-meetings/eddie/hor-57g-ivh/start
+
+## Languages
+
+- English (primary): https://strategyandstack.com/
+- Spanish (Latin America): https://strategyandstack.com/es/
+
+## Key Differentiators
+
+1. **Ownership Model**: Unlike agencies, clients own everything built
+2. **No Retainers**: One-time implementation, not ongoing fees
+3. **Modular Design**: Systems can be stacked as needed
+4. **Transparency**: Clear distinction between guaranteed deliverables and market-dependent outcomes
+5. **Speed**: Implementation starts within 48 hours of agreement
+
+## Common Questions
+
+**Q: How is this different from an agency?**
+A: Agencies charge monthly retainers and own the relationship with your tools. Strategy & Stack installs infrastructure you own outright with no lock-in.
+
+**Q: What results can I expect?**
+A: Guaranteed: work gets done correctly (emails sent, profiles optimized, campaigns launched). Market-dependent: response rates, conversion rates, meetings booked.
+
+**Q: How long until results?**
+A: Most clients see meaningful pipeline activity within 30-45 days of going live.
+
+## Technical Information
+
+- Built with modern web technologies
+- Fully responsive design
+- HTTPS secured
+- Schema.org structured data
+- Multi-language support (EN/ES)

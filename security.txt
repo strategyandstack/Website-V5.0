@@ -1,0 +1,13 @@
+# Security Policy for Strategy & Stack
+# https://strategyandstack.com/.well-known/security.txt
+# According to RFC 9116
+
+Contact: mailto:security@strategyandstack.com
+Expires: 2027-01-14T00:00:00.000Z
+Preferred-Languages: en, es
+Canonical: https://strategyandstack.com/.well-known/security.txt
+
+# Policy
+# We take security seriously. If you discover a vulnerability,
+# please report it responsibly using the contact above.
+# We aim to respond within 48 hours.
