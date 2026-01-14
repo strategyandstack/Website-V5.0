@@ -3,82 +3,123 @@ import {
     createValuePropCard, 
     createBlueprintNavItem,
     createBlueprintDisplay,
+    createBlueprintAccordion,
     createPricingCard, 
     createStatItem,
-    createRoadmapItem
+    createRoadmapItem,
+    createFaqItem
 } from './components.js';
 
 const emailTemplates = {
     linkedin: `{{RANDOM | Hi {{firstName}} | Hello {{firstName}} | {{firstName}},}} this is a cold message and I know you get many, so I'll keep it brief.
 
-{{RANDOM | Still | Even so | Nevertheless}}, messages like this are the reason Rockets Traffic has helped more than 105 professionals turn their LinkedIn presence into a consistent source of leads and launched over 200 outbound campaigns through ads, automation, and outreach.
+{{RANDOM | Still | Even so | Nevertheless}}, messages like this are the reason Rockets Traffic has helped more than 105 professionals turn their LinkedIn presence into a consistent source of leads.
 
 {{RANDOM | We are opening | We're launching | We have available}} an end-of-year bundle for just 12 clients.
 
-{{RANDOM | Inside you get | This includes | You'll receive}} a complete LinkedIn profile + company page upgrade, plus 1 full month of done-for-you managed outreach, free of charge for the first month.
-
-{{RANDOM | If you qualify before December 12 | Should you meet the criteria before December 12 | Provided you're eligible before December 12}}, we'll also add 1 extra profile and launch it with outreach so you can scale and reach more of your ideal clients.
+{{RANDOM | Inside you get | This includes | You'll receive}} a complete LinkedIn profile + company page upgrade, plus 1 full month of done-for-you managed outreach.
 
 {{RANDOM | If this feels worth exploring | If this sounds interesting | If you'd like to learn more}}, reply "Yes" and I'll share my calendar link.`,
 
-    cold: `Subject: {{RANDOM | Quick question about {{companyName}} | {{firstName}}, saw your work at {{companyName}} | Idea for {{companyName}}'s outbound}}
+    cold: `Subject: {{RANDOM | Quick question about {{companyName}} | {{firstName}}, saw your work at {{companyName}}}}
 
 {{RANDOM | Hi {{firstName}} | Hello {{firstName}} | Hey {{firstName}}}},
 
-{{RANDOM | I noticed | I came across | I saw}} {{companyName}} {{RANDOM | is scaling rapidly | has been growing | is expanding into new markets}} and thought you might be interested in how we've helped similar {{industry}} companies {{RANDOM | 3x their pipeline | book 40+ meetings monthly | reduce CAC by 60%}}.
+{{RANDOM | I noticed | I came across | I saw}} {{companyName}} {{RANDOM | is scaling rapidly | has been growing}} and thought you might be interested in how we've helped similar {{industry}} companies {{RANDOM | 3x their pipeline | book 40+ meetings monthly}}.
 
-{{RANDOM | The short version | Here's the gist | Quick overview}}: We build done-for-you outbound systems that {{RANDOM | run on autopilot | require zero maintenance | scale without adding headcount}}.
+{{RANDOM | The short version | Here's the gist}}: We build done-for-you outbound systems that {{RANDOM | run on autopilot | require zero maintenance}}.
 
-{{RANDOM | Would it make sense | Would you be open | Are you available}} to chat for 15 minutes this week? I can show you exactly what we'd build for {{companyName}}.
+{{RANDOM | Would it make sense | Would you be open}} to chat for 15 minutes this week?
 
-{{RANDOM | Best | Cheers | Talk soon}},
-{{senderName}}
+{{RANDOM | Best | Cheers}},
+{{senderName}}`,
 
-P.S. {{RANDOM | No pitch on the call | This isn't a sales call | Just a quick strategy session}} just want to see if there's a fit.`,
+    followup: `{{RANDOM | Hi {{firstName}} | Hey {{firstName}}}},
 
-    followup: `{{RANDOM | Hi {{firstName}} | Hey {{firstName}} | {{firstName}}}},
+{{RANDOM | Following up on my last message | Wanted to circle back}} - {{RANDOM | I know you're busy | things get buried}}.
 
-{{RANDOM | Following up on my last message | Wanted to circle back | Bumping this to the top of your inbox}} {{RANDOM | I know you're busy | things get buried | timing is everything}}.
+{{RANDOM | Quick recap | In case you missed it}}: We help {{industry}} companies like {{companyName}} build outbound systems that {{RANDOM | generate leads on autopilot | book 30-50 meetings per month}}.
 
-{{RANDOM | Quick recap | In case you missed it | The short version}}: We help {{industry}} companies like {{companyName}} build outbound systems that {{RANDOM | generate qualified leads on autopilot | book 30 to 50 meetings per month | create predictable pipeline}}.
+{{RANDOM | Worth a 10-minute call? | Would a quick chat make sense?}}
 
-{{RANDOM | I put together | I created | I drafted}} a quick breakdown of what this could look like for {{companyName}} specifically {{RANDOM | happy to share | would love to walk you through it | can send it over}} if you're interested.
+{{RANDOM | {{senderName}} | Best, {{senderName}}}}`,
 
-{{RANDOM | Worth a 10-minute call? | Would a quick chat make sense? | Open to connecting this week?}}
+    breakup: `{{RANDOM | Hi {{firstName}} | Hey {{firstName}}}},
 
-{{RANDOM | {{senderName}} | Best, {{senderName}} | Cheers, {{senderName}}}}`,
+{{RANDOM | I've reached out a few times | This is my last follow-up}} - {{RANDOM | I don't want to keep filling your inbox | I respect your time}}.
 
-    breakup: `{{RANDOM | Hi {{firstName}} | Hey {{firstName}} | {{firstName}}}},
+{{RANDOM | If building a predictable outbound engine for {{companyName}} isn't a priority right now | If now isn't the right time}}, {{RANDOM | totally understand | no worries}}.
 
-{{RANDOM | I've reached out a few times | This is my last follow-up | I'll keep this short}} {{RANDOM | I don't want to keep filling your inbox | I know when to take a hint | I respect your time}}.
+{{RANDOM | But if anything changes | When you're ready}}, {{RANDOM | my door is always open | you know where to find me}}.
 
-{{RANDOM | If building a predictable outbound engine for {{companyName}} isn't a priority right now | If now isn't the right time to scale your pipeline | If outbound isn't on your radar this quarter}}, {{RANDOM | totally understand | no worries at all | completely get it}}.
-
-{{RANDOM | But if anything changes | If this becomes relevant later | When you're ready to explore this}}, {{RANDOM | my door is always open | you know where to find me | just reply to this thread}}.
-
-{{RANDOM | Wishing you and the team at {{companyName}} a strong {{quarter}} | Best of luck with everything at {{companyName}} | Rooting for {{companyName}}'s success}}.
-
-{{RANDOM | {{senderName}} | All the best, {{senderName}} | Cheers, {{senderName}}}}`
+{{RANDOM | {{senderName}} | All the best, {{senderName}}}}`
 };
 
-// State
 let currentBlueprintIndex = 0;
 let typingInterval = null;
 let isTyping = false;
 
 document.addEventListener('DOMContentLoaded', () => {
     if (!data) return;
+    
+    initMouseGlow();
+    initScrollProgress();
     initLayout();
     initNavScroll();
+    initActiveNavHighlight();
     initEmailEditor();
+    initEditorScrollFade();
     initBlueprintInteraction();
-    initMobileBlueprintScroll();
+    initBlueprintAccordion();
+    initSectionReveals();
     initRoadmapAnimation();
-    initAnimations();
+    initFaqAnimations();
     initStatsCounter();
+    initMobileStickyCta();
+    initAnimations();
+    
     lucide.createIcons();
 });
 
+// Mouse glow trail
+function initMouseGlow() {
+    const glow = document.createElement('div');
+    glow.className = 'mouse-glow';
+    document.body.appendChild(glow);
+    
+    let mouseX = 0, mouseY = 0;
+    let glowX = 0, glowY = 0;
+    
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+    
+    function animateGlow() {
+        glowX += (mouseX - glowX) * 0.1;
+        glowY += (mouseY - glowY) * 0.1;
+        glow.style.left = glowX + 'px';
+        glow.style.top = glowY + 'px';
+        requestAnimationFrame(animateGlow);
+    }
+    animateGlow();
+}
+
+// Scroll progress bar
+function initScrollProgress() {
+    const progress = document.createElement('div');
+    progress.className = 'scroll-progress';
+    document.body.appendChild(progress);
+    
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = scrollTop / docHeight;
+        progress.style.transform = `scaleX(${scrollPercent})`;
+    }, { passive: true });
+}
+
+// Nav scroll effect
 function initNavScroll() {
     const nav = document.querySelector('nav');
     if (!nav) return;
@@ -88,6 +129,88 @@ function initNavScroll() {
             nav.classList.add('scrolled');
         } else {
             nav.classList.remove('scrolled');
+        }
+    }, { passive: true });
+}
+
+// Active nav highlighting
+function initActiveNavHighlight() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    if (sections.length === 0 || navLinks.length === 0) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.id;
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+        });
+    }, { threshold: 0.3 });
+    
+    sections.forEach(section => observer.observe(section));
+}
+
+// Email editor fade on scroll
+function initEditorScrollFade() {
+    const editor = document.querySelector('.email-editor-container');
+    if (!editor) return;
+    
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        const fadeStart = 200;
+        const fadeEnd = 500;
+        
+        if (scrollY > fadeStart) {
+            const opacity = 1 - Math.min((scrollY - fadeStart) / (fadeEnd - fadeStart), 1);
+            editor.style.opacity = opacity;
+            editor.style.transform = `translateY(${-(scrollY - fadeStart) * 0.3}px)`;
+        } else {
+            editor.style.opacity = 1;
+            editor.style.transform = 'translateY(0)';
+        }
+    }, { passive: true });
+}
+
+// Section reveal animations
+function initSectionReveals() {
+    const reveals = document.querySelectorAll('.section-reveal');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    reveals.forEach(el => observer.observe(el));
+}
+
+// Mobile sticky CTA
+function initMobileStickyCta() {
+    const sticky = document.querySelector('.mobile-sticky-cta');
+    const hero = document.querySelector('.hero-content');
+    const footer = document.querySelector('footer');
+    
+    if (!sticky || !hero) return;
+    
+    window.addEventListener('scroll', () => {
+        const heroBottom = hero.getBoundingClientRect().bottom;
+        const footerTop = footer ? footer.getBoundingClientRect().top : Infinity;
+        
+        if (heroBottom < 0 && footerTop > window.innerHeight) {
+            sticky.classList.add('visible');
+        } else {
+            sticky.classList.remove('visible');
         }
     }, { passive: true });
 }
@@ -109,18 +232,18 @@ function initLayout() {
     if (gList) {
         data.guarantee.what_we_guarantee.forEach(item => {
             const li = document.createElement('li');
-            li.className = 'flex items-start gap-5 text-gray-400 group';
+            li.className = 'flex items-start gap-4 text-gray-400 group';
             li.innerHTML = `
-                <div class="w-7 h-7 rounded-lg bg-white/5 flex items-center justify-center shrink-0 border border-white/10 group-hover:bg-white group-hover:border-white transition-all">
-                    <i data-lucide="check" class="w-4 h-4 text-white group-hover:text-black"></i>
+                <div class="w-6 h-6 rounded-md bg-white/5 flex items-center justify-center shrink-0 border border-white/10 group-hover:bg-white group-hover:border-white transition-all">
+                    <i data-lucide="check" class="w-3 h-3 text-white group-hover:text-black"></i>
                 </div>
-                <span class="text-lg font-medium leading-tight group-hover:text-white transition-colors">${item}</span>
+                <span class="text-base font-medium leading-tight group-hover:text-white transition-colors">${item}</span>
             `;
             gList.appendChild(li);
         });
     }
 
-    // Market Dynamics - Redesigned
+    // Market Dynamics
     const mList = document.getElementById('market-depends-list');
     if (mList) {
         mList.innerHTML = `
@@ -143,7 +266,7 @@ function initLayout() {
         });
     }
 
-    // Blueprints
+    // Blueprints - Desktop nav + display, Mobile accordion
     const blueprintContainer = document.getElementById('blueprints-container');
     if (blueprintContainer) {
         let navItems = '';
@@ -153,26 +276,18 @@ function initLayout() {
         
         blueprintContainer.innerHTML = `
             <div class="blueprint-dashboard">
-                <div class="blueprint-nav-wrapper">
-                    <div class="blueprint-nav">
-                        ${navItems}
-                    </div>
-                    <div class="scroll-hint scroll-hint-left">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="15 18 9 12 15 6"></polyline>
-                        </svg>
-                    </div>
-                    <div class="scroll-hint scroll-hint-right">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="9 18 15 12 9 6"></polyline>
-                        </svg>
-                    </div>
+                <div class="blueprint-nav">
+                    ${navItems}
                 </div>
-                <div class="blueprint-display" id="blueprint-display">
+                <div class="blueprint-display active" id="blueprint-display">
                     ${createBlueprintDisplay(data.blueprints[0])}
                 </div>
             </div>
+            ${createBlueprintAccordion(data.blueprints)}
         `;
+        
+        // Animate hours bars after render
+        setTimeout(() => animateHoursBars(), 100);
     }
 
     // Pricing
@@ -183,7 +298,7 @@ function initLayout() {
         });
     }
 
-    // Next Steps / Roadmap
+    // Roadmap
     const roadmapContainer = document.getElementById('next-steps-container');
     if (roadmapContainer) {
         data.next_steps.forEach((step, idx) => {
@@ -194,18 +309,8 @@ function initLayout() {
     // FAQ
     const faqContainer = document.getElementById('faq-container');
     if (faqContainer) {
-        data.faq.forEach(item => {
-            faqContainer.innerHTML += `
-                <details class="faq-item glass-card rounded-[1rem] overflow-hidden border border-white/5">
-                    <summary class="p-6 cursor-pointer font-black text-xs uppercase tracking-[0.2em] list-none flex justify-between items-center group transition-colors hover:text-white text-white/50">
-                        <span>${item.question}</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-500 text-white"></i>
-                    </summary>
-                    <div class="px-6 pb-6 text-gray-400 leading-relaxed text-sm font-medium border-t border-white/5 pt-6">
-                        ${item.answer}
-                    </div>
-                </details>
-            `;
+        data.faq.forEach((item, index) => {
+            faqContainer.innerHTML += createFaqItem(item, index);
         });
     }
 
@@ -226,41 +331,44 @@ function initLayout() {
     }
 }
 
-// Mobile blueprint scroll hints
-function initMobileBlueprintScroll() {
-    const wrapper = document.querySelector('.blueprint-nav-wrapper');
-    const nav = document.querySelector('.blueprint-nav');
-    
-    if (!wrapper || !nav) return;
-    
-    const updateScrollState = () => {
-        const scrollLeft = nav.scrollLeft;
-        const maxScroll = nav.scrollWidth - nav.clientWidth;
-        
-        if (scrollLeft > 10) {
-            wrapper.classList.add('scrolled-start');
-        } else {
-            wrapper.classList.remove('scrolled-start');
-        }
-        
-        if (scrollLeft >= maxScroll - 10) {
-            wrapper.classList.add('scrolled-end');
-        } else {
-            wrapper.classList.remove('scrolled-end');
-        }
-    };
-    
-    nav.addEventListener('scroll', updateScrollState, { passive: true });
-    updateScrollState();
+// Animate hours progress bars
+function animateHoursBars() {
+    const bars = document.querySelectorAll('.hours-bar[data-width]');
+    bars.forEach(bar => {
+        const width = bar.dataset.width;
+        setTimeout(() => {
+            bar.style.width = width;
+        }, 200);
+    });
 }
 
-// Roadmap scroll animation
+// Blueprint accordion for mobile
+function initBlueprintAccordion() {
+    const items = document.querySelectorAll('.blueprint-accordion-item');
+    
+    items.forEach(item => {
+        const header = item.querySelector('.blueprint-accordion-header');
+        header.addEventListener('click', () => {
+            const wasActive = item.classList.contains('active');
+            
+            // Close all
+            items.forEach(i => i.classList.remove('active'));
+            
+            // Open clicked if wasn't active
+            if (!wasActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+}
+
+// Roadmap animation
 function initRoadmapAnimation() {
     const items = document.querySelectorAll('.roadmap-item');
     if (items.length === 0) return;
     
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
+        entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const delay = parseInt(entry.target.dataset.index) * 100;
                 setTimeout(() => {
@@ -274,7 +382,44 @@ function initRoadmapAnimation() {
     items.forEach(item => observer.observe(item));
 }
 
-// Blueprint interaction
+// FAQ animations with ripple
+function initFaqAnimations() {
+    const items = document.querySelectorAll('.faq-item');
+    
+    // Reveal animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const delay = parseInt(entry.target.dataset.index) * 80;
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, delay);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    items.forEach(item => observer.observe(item));
+    
+    // Ripple effect on click
+    items.forEach(item => {
+        const summary = item.querySelector('summary');
+        summary.addEventListener('click', (e) => {
+            const rect = item.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            
+            item.style.setProperty('--ripple-x', x + '%');
+            item.style.setProperty('--ripple-y', y + '%');
+            
+            item.classList.remove('ripple');
+            void item.offsetWidth;
+            item.classList.add('ripple');
+        });
+    });
+}
+
+// Blueprint interaction (desktop)
 function initBlueprintInteraction() {
     const navItems = document.querySelectorAll('.blueprint-nav-item');
     const display = document.getElementById('blueprint-display');
@@ -302,140 +447,88 @@ function loadBlueprint(index) {
     
     currentBlueprintIndex = index;
     
-    // Trigger scan animation
-    display.classList.remove('scanning');
+    // Scan animation
+    display.classList.remove('scanning', 'active');
     void display.offsetWidth;
     display.classList.add('scanning');
     
     // Update content
     display.innerHTML = createBlueprintDisplay(bp);
     
-    // Animate all elements
+    // Animate content
     animateBlueprintContent(bp);
+    
+    // Show lightbar after scan
+    setTimeout(() => {
+        display.classList.add('active');
+    }, 700);
+    
+    // Animate hours bars
+    setTimeout(() => animateHoursBars(), 100);
     
     lucide.createIcons();
 }
 
-// Combined animations for blueprint content
 function animateBlueprintContent(bp) {
     const display = document.getElementById('blueprint-display');
     
-    // Scramble the title
-    const titleElement = display.querySelector('.display-title');
-    if (titleElement) {
-        scrambleText(titleElement, `${bp.name.toUpperCase()} BLUEPRINT`);
+    // Scramble title
+    const title = display.querySelector('.display-title');
+    if (title) {
+        scrambleText(title, `${bp.name.toUpperCase()} BLUEPRINT`);
     }
     
-    // Fade in description and timeline
-    const fadeElements = display.querySelectorAll('.display-description, .display-timeline');
-    fadeElements.forEach((el, i) => {
+    // Fade elements
+    const fadeEls = display.querySelectorAll('.display-description, .display-timeline');
+    fadeEls.forEach((el, i) => {
         el.style.opacity = '0';
-        el.style.transform = 'translateY(10px)';
+        el.style.transform = 'translateY(8px)';
         setTimeout(() => {
-            el.style.transition = 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+            el.style.transition = 'all 0.4s ease';
             el.style.opacity = '1';
             el.style.transform = 'translateY(0)';
         }, 100 + (i * 50));
     });
     
-    // Animate hours with count-up effect
-    const hoursElements = display.querySelectorAll('.hours-value');
-    hoursElements.forEach((el, i) => {
-        const value = el.dataset.value;
-        el.style.opacity = '0';
-        setTimeout(() => {
-            el.style.opacity = '1';
-            if (value && !isNaN(parseInt(value))) {
-                animateNumber(el, parseInt(value));
-            } else {
-                // For "Ongoing" or "Automated" text, just fade in
-                el.style.transition = 'opacity 0.3s ease';
-            }
-        }, 200 + (i * 100));
-    });
-    
-    // Slide in hours boxes
-    const hoursBoxes = display.querySelectorAll('.hours-box');
-    hoursBoxes.forEach((el, i) => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateX(-20px)';
-        setTimeout(() => {
-            el.style.transition = 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
-            el.style.opacity = '1';
-            el.style.transform = 'translateX(0)';
-        }, 150 + (i * 75));
-    });
-    
-    // Stagger fade in features
+    // Features stagger
     const features = display.querySelectorAll('.feature-list li');
     features.forEach((el, i) => {
         el.style.opacity = '0';
-        el.style.transform = 'translateY(10px)';
+        el.style.transform = 'translateY(8px)';
         setTimeout(() => {
-            el.style.transition = 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+            el.style.transition = 'all 0.3s ease';
             el.style.opacity = '1';
             el.style.transform = 'translateY(0)';
-        }, 300 + (i * 40));
+        }, 250 + (i * 40));
     });
     
-    // Fade in footer
+    // Footer
     const footer = display.querySelector('.display-footer');
     if (footer) {
         footer.style.opacity = '0';
         setTimeout(() => {
-            footer.style.transition = 'opacity 0.5s ease';
+            footer.style.transition = 'opacity 0.4s ease';
             footer.style.opacity = '1';
-        }, 500);
+        }, 450);
     }
 }
 
-// Number count-up animation
-function animateNumber(element, target) {
-    const suffix = element.textContent.includes('Hours') ? ' Hours' : '';
-    const duration = 600;
-    const start = 0;
-    const startTime = performance.now();
-    
-    const animate = (currentTime) => {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const easeOut = 1 - Math.pow(1 - progress, 3);
-        const current = Math.round(start + (target - start) * easeOut);
-        
-        element.textContent = current + suffix;
-        
-        if (progress < 1) {
-            requestAnimationFrame(animate);
-        } else {
-            element.textContent = target + suffix;
-        }
-    };
-    
-    requestAnimationFrame(animate);
-}
-
-// Text scramble animation
 function scrambleText(element, targetText) {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     let iteration = 0;
-    const duration = 500;
-    const interval = 25;
-    const totalIterations = duration / interval;
-    
-    const scrambleInterval = setInterval(() => {
+    const interval = setInterval(() => {
         element.textContent = targetText.split('').map((char, idx) => {
             if (char === ' ') return ' ';
             if (idx < iteration) return targetText[idx];
             return chars[Math.floor(Math.random() * chars.length)];
         }).join('');
         
-        iteration += targetText.length / totalIterations;
-        
-        if (iteration >= targetText.length) {
+        iteration += 1;
+        if (iteration > targetText.length) {
             element.textContent = targetText;
-            clearInterval(scrambleInterval);
+            clearInterval(interval);
         }
-    }, interval);
+    }, 25);
 }
 
 // Email Editor
@@ -450,20 +543,16 @@ function initEmailEditor() {
         if (panel) {
             const textElement = panel.querySelector('.editor-text');
             if (textElement) {
-                textElement.dataset.fullContent = highlightSyntax(emailTemplates[tabName]);
                 textElement.innerHTML = '<span class="typing-cursor"></span>';
             }
         }
     });
 
-    requestAnimationFrame(() => {
-        setTimeout(() => typeText('linkedin'), 300);
-    });
+    setTimeout(() => typeText('linkedin'), 500);
 
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
             const tabName = tab.dataset.tab;
-            
             stopTyping();
             
             tabs.forEach(t => {
@@ -477,9 +566,7 @@ function initEmailEditor() {
             const activePanel = document.getElementById(`tab-${tabName}`);
             if (activePanel) {
                 activePanel.classList.remove('hidden');
-                requestAnimationFrame(() => {
-                    typeText(tabName);
-                });
+                setTimeout(() => typeText(tabName), 50);
             }
         });
     });
@@ -508,7 +595,6 @@ function typeText(tabName) {
     isTyping = true;
     
     const highlightedText = highlightSyntax(template);
-    
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = highlightedText;
     const plainText = tempDiv.textContent || tempDiv.innerText;
@@ -516,7 +602,6 @@ function typeText(tabName) {
     textElement.innerHTML = '<span class="typing-cursor"></span>';
     
     let charIndex = 0;
-    const typingSpeed = 5;
     const charsPerFrame = 3;
     
     typingInterval = setInterval(() => {
@@ -530,16 +615,14 @@ function typeText(tabName) {
         if (charIndex >= plainText.length) {
             textElement.innerHTML = highlightedText + '<span class="typing-cursor"></span>';
             stopTyping();
-            
             setTimeout(() => {
                 const cursor = textElement.querySelector('.typing-cursor');
                 if (cursor) cursor.style.opacity = '0';
             }, 2000);
         } else {
-            const partialText = getPartialHighlightedText(highlightedText, charIndex);
-            textElement.innerHTML = partialText + '<span class="typing-cursor"></span>';
+            textElement.innerHTML = getPartialHighlightedText(highlightedText, charIndex) + '<span class="typing-cursor"></span>';
         }
-    }, typingSpeed);
+    }, 8);
 }
 
 function getPartialHighlightedText(html, charCount) {
@@ -605,18 +688,28 @@ function highlightSyntax(text) {
     return escaped;
 }
 
+// Stats with pulse
 function initStatsCounter() {
     const stats = document.querySelectorAll('.stat-counter');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const target = parseInt(entry.target.getAttribute('data-target'));
-                gsap.to(entry.target, {
-                    innerText: target,
-                    duration: 2,
-                    snap: { innerText: 1 },
-                    ease: 'expo.out'
+                const counter = { value: 0 };
+                
+                gsap.to(counter, {
+                    value: target,
+                    duration: 1.5,
+                    ease: 'power2.out',
+                    onUpdate: () => {
+                        entry.target.textContent = Math.round(counter.value);
+                    },
+                    onComplete: () => {
+                        entry.target.classList.add('pulse');
+                        setTimeout(() => entry.target.classList.remove('pulse'), 600);
+                    }
                 });
+                
                 observer.unobserve(entry.target);
             }
         });
@@ -630,36 +723,36 @@ function initAnimations() {
 
     gsap.from('#hero-headline', {
         opacity: 0,
-        y: 60,
-        duration: 1.5,
+        y: 50,
+        duration: 1.2,
         ease: 'expo.out'
     });
 
     gsap.from('.hero-content p, .hero-content .flex', {
         opacity: 0,
-        y: 30,
-        duration: 1.2,
-        stagger: 0.15,
-        delay: 0.3,
-        ease: 'power4.out'
+        y: 25,
+        duration: 1,
+        stagger: 0.1,
+        delay: 0.2,
+        ease: 'power3.out'
     });
 
     gsap.from('.email-editor', {
         opacity: 0,
-        scale: 0.95,
-        duration: 1.2,
-        delay: 0.5,
+        scale: 0.96,
+        duration: 1,
+        delay: 0.4,
         ease: 'expo.out'
     });
     
     gsap.from('.blueprint-dashboard', {
         scrollTrigger: {
             trigger: '.blueprint-dashboard',
-            start: 'top 80%',
+            start: 'top 85%',
         },
         opacity: 0,
-        y: 40,
-        duration: 1,
+        y: 30,
+        duration: 0.8,
         ease: 'expo.out'
     });
 }
