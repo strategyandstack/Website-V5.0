@@ -55,7 +55,13 @@ let ctaHoverTimeout = null;
 let blurOverlay = null;
 
 document.addEventListener('DOMContentLoaded', () => {
-    if (!data) return;
+    console.log('DOM loaded');
+    console.log('data:', data);
+    console.log('createBlueprintNavItem:', typeof createBlueprintNavItem);
+    if (!data) {
+        console.error('DATA IS NOT LOADED');
+        return;
+    }
     initBlurOverlay();
     initMouseGlow();
     initScrollProgress();
@@ -75,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCTAFocusEffect();
     initAnimations();
     lucide.createIcons();
+    console.log('All init functions completed');
 });
 
 function initBlurOverlay() {
@@ -267,13 +274,17 @@ function initLayout() {
     if (statsGrid) statsGrid.innerHTML = data.social_proof.stats.map(s => createStatItem(s)).join('');
     
     const bpContainer = document.getElementById('blueprints-container');
+    console.log('bpContainer:', bpContainer);
+    console.log('data.blueprints:', data.blueprints);
     if (bpContainer) {
+        console.log('Creating blueprints HTML...');
         bpContainer.innerHTML = `
 <div class="blueprint-dashboard section-reveal">
     <div class="blueprint-nav">${data.blueprints.map((bp, i) => createBlueprintNavItem(bp, i === 0)).join('')}</div>
     <div class="blueprint-display" id="blueprint-display">${createBlueprintDisplay(data.blueprints[0], LANG)}</div>
 </div>
 ${createBlueprintAccordion(data.blueprints, LANG)}`;
+        console.log('Blueprints HTML created');
         setTimeout(() => {
             const display = document.getElementById('blueprint-display');
             if (display) display.classList.add('active');
