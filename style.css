@@ -315,7 +315,7 @@ h1, h2, h3, h4 { letter-spacing: -0.04em; font-weight: 900; }
 .syntax-pipe { color: #6B7280; }
 .syntax-variable { color: var(--purple-primary); font-weight: 600; }
 .syntax-firstname { color: var(--cyan-accent); font-weight: 600; }
-.syntax-sender { color: #F472B6; font-weight: 600; }
+.syntax-sender { color: #A3E635; font-weight: 600; }
 .syntax-company { color: #4ADE80; font-weight: 600; }
 .syntax-industry { color: #FB923C; font-weight: 600; }
 
