@@ -1,5 +1,5 @@
 import { salesArchitectureData as data } from './data.js';
-import { createValuePropCard, createBlueprintNavItem, createBlueprintDisplay, createBlueprintAccordion, createPricingCard, createStatItem, createRoadmapItem, createFaqItem, createMarketDynamics, createSecondaryCTANote } from './components.js';
+import { createValuePropCard, createBlueprintNavItem, createBlueprintDisplay, createBlueprintAccordion, createPricingCard, createStatItem, createRoadmapItem, createFaqItem, createMarketDynamics, createSecondaryCTANote, createABetterWaySection, createWhoThisIsForSection } from './components.js';
 
 const LANG = 'en';
 
@@ -160,25 +160,21 @@ function initEditorScrollEffect() {
         const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
         const statsTop = statsSection.offsetTop;
         
-        // Calculate progress (0 to 1) as we scroll through the hero
         const scrollStart = 100;
         const scrollEnd = statsTop - 100;
         const progress = Math.max(0, Math.min(1, (scrollY - scrollStart) / (scrollEnd - scrollStart)));
         
         if (scrollY < scrollStart) {
-            // Before scroll effect starts
             editor.style.transform = 'perspective(1000px) rotateX(0deg) scale(1)';
             editor.style.opacity = '1';
         } else if (progress < 1) {
-            // During scroll - scale up and apply trapezoid effect (coming toward viewer)
-            const scale = 1 + (progress * 0.15); // Scale up to 1.15
-            const rotateX = progress * -8; // Tilt top away (trapezoid effect)
-            const translateY = progress * -30; // Move up slightly
+            const scale = 1 + (progress * 0.15);
+            const rotateX = progress * -8;
+            const translateY = progress * -30;
             
             editor.style.transform = `perspective(1000px) rotateX(${rotateX}deg) scale(${scale}) translateY(${translateY}px)`;
             editor.style.opacity = Math.max(0, 1 - (progress * 1.2));
         } else {
-            // After stats section - fully hidden
             editor.style.opacity = '0';
         }
     }, { passive: true });
@@ -193,7 +189,6 @@ function initCTAFocusEffect() {
             ctaHoverTimeout = setTimeout(() => {
                 blurOverlay.classList.add('active');
                 cta.classList.add('cta-focus');
-                // Elevate parent card above blur
                 const parentCard = cta.closest('.glass-card, .pricing-card, .blueprint-display');
                 if (parentCard) parentCard.classList.add('card-elevated');
             }, 300);
@@ -206,7 +201,6 @@ function initCTAFocusEffect() {
             }
             blurOverlay.classList.remove('active');
             cta.classList.remove('cta-focus');
-            // Remove elevation from parent card
             const parentCard = cta.closest('.glass-card, .pricing-card, .blueprint-display');
             if (parentCard) parentCard.classList.remove('card-elevated');
         });
@@ -240,6 +234,12 @@ function initMobileStickyCta() {
 
 function initLayout() {
     document.title = data.meta.name + " | " + data.meta.tagline;
+    
+    // Inject A Better Way section
+    const aBetterWayContainer = document.getElementById('a-better-way-container');
+    if (aBetterWayContainer && data.a_better_way) {
+        aBetterWayContainer.innerHTML = createABetterWaySection(data.a_better_way, LANG);
+    }
     
     const vpContainer = document.getElementById('value-props');
     if (vpContainer) {
@@ -281,6 +281,12 @@ ${createBlueprintAccordion(data.blueprints, LANG)}`;
         }, 100);
     }
     
+    // Inject Who This Is For section
+    const whoThisIsForContainer = document.getElementById('who-this-is-for-container');
+    if (whoThisIsForContainer && data.who_this_is_for) {
+        whoThisIsForContainer.innerHTML = createWhoThisIsForSection(data.who_this_is_for, LANG);
+    }
+    
     const pricingGrid = document.getElementById('pricing-grid');
     if (pricingGrid) pricingGrid.innerHTML = data.packages.map(p => createPricingCard(p, LANG)).join('');
     
@@ -307,7 +313,6 @@ ${createBlueprintAccordion(data.blueprints, LANG)}`;
     if (ctaSecondarySub) ctaSecondarySub.textContent = data.cta_sections.secondary.subheadline;
     if (ctaSecondaryBtn) ctaSecondaryBtn.textContent = data.cta_sections.secondary.button_text;
     
-    // Add secondary note to the secondary CTA card
     if (ctaSecondaryCard && data.cta_sections.secondary.note_text) {
         const noteHtml = createSecondaryCTANote(data.cta_sections.secondary.note_text, data.cta_sections.secondary.scarcity_text);
         ctaSecondaryCard.insertAdjacentHTML('beforeend', noteHtml);
@@ -399,7 +404,7 @@ function loadBlueprint(index) {
     animateBlueprintContent(bp);
     setTimeout(() => display.classList.add('active'), 700);
     setTimeout(() => animateHoursBars(), 100);
-    initCTAFocusEffect(); // Re-init for new CTAs
+    initCTAFocusEffect();
     lucide.createIcons();
 }
 
@@ -522,5 +527,4 @@ function initAnimations() {
     gsap.from('#hero-headline', { opacity: 0, y: 50, duration: 1.2, ease: 'expo.out' });
     gsap.from('.hero-content p, .hero-content .flex', { opacity: 0, y: 25, duration: 1, stagger: 0.1, delay: 0.2, ease: 'power3.out' });
     gsap.from('.email-editor', { opacity: 0, scale: 0.96, duration: 1, delay: 0.4, ease: 'expo.out' });
-    // Removed blueprint-dashboard animation - conflicts with section-reveal CSS
 }
