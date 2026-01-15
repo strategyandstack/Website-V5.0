@@ -12,6 +12,57 @@ export const salesArchitectureData = {
     "cta_primary": "Agenda una Llamada",
     "cta_secondary": "Ver Cómo Funciona"
   },
+  "a_better_way": {
+    "section_label": "Por Qué Existe Esto",
+    "section_title": "Una Mejor Manera",
+    "problem": {
+      "badge": "El Problema",
+      "title": "El Problema Que Resolvemos",
+      "description": "La mayoría de los negocios crecen por referidos hasta que llegan a un techo. Cuando intentan agregar outbound, enfrentan una decisión difícil: contratar vendedores costosos sin garantía de resultados, o perder meses tratando de resolverlo ellos mismos.",
+      "pain_points": [
+        "Contratar toma 3-6 meses sin resultados garantizados",
+        "Las agencias te amarran a retainers sin darte propiedad",
+        "Hacerlo tú mismo significa reinventar la rueda cada vez"
+      ]
+    },
+    "solution": {
+      "badge": "Nuestra Solución",
+      "title": "Arquitectura de Ventas",
+      "description": "Instalamos infraestructura de ventas probada, los mismos sistemas, automatizaciones y procesos que funcionan en más de 200 campañas, personalizados para tu negocio. Tú eres dueño de todo. Nosotros solo nos aseguramos de que funcione.",
+      "benefits": [
+        "En vivo en días, no meses",
+        "70%+ de ahorro vs. construirlo manualmente",
+        "Propiedad total de todos los sistemas y datos"
+      ]
+    }
+  },
+  "who_this_is_for": {
+    "section_label": "Perfil Ideal",
+    "section_title": "Para Quién Es Esto",
+    "description": "Nuestros sistemas funcionan mejor para negocios de servicios establecidos listos para agregar ingresos predecibles por outbound.",
+    "criteria": [
+      {
+        "icon": "grid-3x3",
+        "title": "Negocios en Estados Unidos",
+        "description": "Firmas de CPA, bufetes de abogados, agencias, consultorías y empresas SaaS"
+      },
+      {
+        "icon": "trending-up",
+        "title": "Flujo de Caja Positivo",
+        "description": "Empresas que han crecido por referidos y están listas para escalar"
+      },
+      {
+        "icon": "users",
+        "title": "Capacidad Operacional",
+        "description": "Equipos que pueden manejar más clientes pero les falta el sistema de outbound para alcanzarlos"
+      },
+      {
+        "icon": "dollar-sign",
+        "title": "Ticket Alto",
+        "description": "Tamaño promedio de deal de $2,000+ donde el ROI de outbound tiene sentido"
+      }
+    ]
+  },
   "value_proposition": {
     "main": "Instalamos sistemas de ventas que generan leads mientras tú cierras negocios",
     "supporting": "Un framework probado para generar leads y agendar reuniones sin necesidad de construir un equipo de ventas grande. Combina automatización, IA y procesos comprobados para entregar resultados que tradicionalmente requerirían de 3 a 5 veces más horas de trabajo.",
