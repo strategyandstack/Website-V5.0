@@ -38,8 +38,8 @@ export const salesArchitectureData = {
   },
   "who_this_is_for": {
     "section_label": "Ideal Fit",
-    "section_title": "Who This Is For",
-    "description": "Our blueprints work best for established service businesses ready to add predictable outbound revenue.",
+    "section_title": "Who Is This For",
+    "description": "Our blueprints work best for established businesses ready to add predictable outbound revenue.",
     "criteria": [
       {
         "icon": "grid-3x3",
