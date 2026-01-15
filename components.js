@@ -4,7 +4,7 @@ export const createValuePropCard = (title, description, icon) => `
         <i data-lucide="${icon}" class="w-5 h-5 text-white"></i>
     </div>
     <h3 class="text-lg font-bold mb-2 tracking-tight">${title}</h3>
-    <p class="text-gray-400 leading-relaxed text-sm">${description}</p>
+    <p class="text-gray-300 leading-relaxed text-sm">${description}</p>
 </div>`;
 
 export const createABetterWaySection = (data, lang = 'en') => {
@@ -26,10 +26,10 @@ export const createABetterWaySection = (data, lang = 'en') => {
                     <span class="text-[10px] font-bold uppercase tracking-wider text-red-400">${problem.badge}</span>
                 </div>
                 <h3 class="text-2xl md:text-3xl font-black mb-4 tracking-tight">${problem.title}</h3>
-                <p class="text-sm text-gray-400 leading-relaxed mb-6">${problem.description}</p>
+                <p class="text-sm text-gray-300 leading-relaxed mb-6">${problem.description}</p>
                 <ul class="space-y-3">
                     ${problem.pain_points.map(point => `
-                    <li class="flex items-start gap-3 text-sm text-gray-400">
+                    <li class="flex items-start gap-3 text-sm text-gray-300">
                         <span class="flex-shrink-0 w-5 h-5 rounded flex items-center justify-center mt-0.5">
                             <i data-lucide="x" class="w-3.5 h-3.5 text-red-400/70"></i>
                         </span>
@@ -44,10 +44,10 @@ export const createABetterWaySection = (data, lang = 'en') => {
                     <span class="text-[10px] font-bold uppercase tracking-wider text-purple-400">${solution.badge}</span>
                 </div>
                 <h3 class="text-2xl md:text-3xl font-black mb-4 tracking-tight">${solution.title}</h3>
-                <p class="text-sm text-gray-400 leading-relaxed mb-6">${solution.description}</p>
+                <p class="text-sm text-gray-300 leading-relaxed mb-6">${solution.description}</p>
                 <ul class="space-y-3">
                     ${solution.benefits.map(benefit => `
-                    <li class="flex items-start gap-3 text-sm text-gray-400">
+                    <li class="flex items-start gap-3 text-sm text-gray-300">
                         <span class="flex-shrink-0 w-5 h-5 rounded flex items-center justify-center mt-0.5">
                             <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400/70"></i>
                         </span>
@@ -71,7 +71,7 @@ export const createWhoThisIsForSection = (data, lang = 'en') => {
                     <span class="text-[10px] font-bold uppercase tracking-wider text-purple-400">${data.section_label}</span>
                 </div>
                 <h2 class="text-3xl md:text-4xl font-black mb-4 tracking-tighter">${data.section_title}</h2>
-                <p class="text-base text-gray-400 leading-relaxed">${data.description}</p>
+                <p class="text-base text-gray-300 leading-relaxed">${data.description}</p>
             </div>
             <div class="space-y-4 section-reveal">
                 ${data.criteria.map(item => `
@@ -81,7 +81,7 @@ export const createWhoThisIsForSection = (data, lang = 'en') => {
                     </div>
                     <div>
                         <h4 class="font-bold text-sm mb-1">${item.title}</h4>
-                        <p class="text-xs text-gray-400 leading-relaxed">${item.description}</p>
+                        <p class="text-xs text-gray-300 leading-relaxed">${item.description}</p>
                     </div>
                 </div>`).join('')}
             </div>
