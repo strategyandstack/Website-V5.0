@@ -58,5 +58,24 @@ Allow: /
 User-agent: YouBot
 Allow: /
 
+# Block AI training crawlers (keep content out of training datasets)
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
 User-agent: CCBot
-Allow: /
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
