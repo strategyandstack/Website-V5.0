@@ -558,46 +558,4 @@ function initStatsCounter() {
 }
 
 function initAnimations() {
-    // Animations disabled for consistent loading
-    return;
-    
-    /*
-    if (typeof gsap === 'undefined') {
-        console.warn('GSAP not loaded');
-        return;
-    }
-    
-    try {
-        gsap.registerPlugin(ScrollTrigger);
-        
-        gsap.from('#hero-headline', { 
-            opacity: 0, 
-            y: 50, 
-            duration: 1.2, 
-            ease: 'expo.out',
-            clearProps: 'all'
-        });
-        
-        gsap.from('.hero-content p, .hero-content .flex', { 
-            opacity: 0, 
-            y: 25, 
-            duration: 1, 
-            stagger: 0.1, 
-            delay: 0.2, 
-            ease: 'power3.out',
-            clearProps: 'all'
-        });
-        
-        gsap.from('.email-editor', { 
-            opacity: 0, 
-            scale: 0.96, 
-            duration: 1, 
-            delay: 0.4, 
-            ease: 'expo.out',
-            clearProps: 'all'
-        });
-    } catch (e) {
-        console.warn('GSAP animation failed:', e);
-    }
-    */
 }
