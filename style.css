@@ -311,9 +311,13 @@ h1, h2, h3, h4 { letter-spacing: -0.04em; font-weight: 900; }
 .tab-panel.hidden { display: none; }
 
 .editor-text { color: #E5E7EB; line-height: 1.8; }
-.syntax-random { color: var(--purple-primary); font-weight: 600; }
-.syntax-variable { color: var(--cyan-accent); font-weight: 600; }
+.syntax-random { color: #6B7280; font-weight: 600; }
 .syntax-pipe { color: #6B7280; }
+.syntax-variable { color: var(--purple-primary); font-weight: 600; }
+.syntax-firstname { color: var(--cyan-accent); font-weight: 600; }
+.syntax-sender { color: #F472B6; font-weight: 600; }
+.syntax-company { color: #4ADE80; font-weight: 600; }
+.syntax-industry { color: #FB923C; font-weight: 600; }
 
 .typing-cursor {
     display: inline-block;
