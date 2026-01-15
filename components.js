@@ -62,7 +62,7 @@ export const createABetterWaySection = (data, lang = 'en') => {
 
 export const createWhoThisIsForSection = (data, lang = 'en') => {
     return `
-<section id="who-this-is-for" class="py-16 px-4 bg-white/[0.01]">
+<section id="who-this-is-for" class="py-16 px-4">
     <div class="max-w-6xl mx-auto">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div class="section-reveal">
