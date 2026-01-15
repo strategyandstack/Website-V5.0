@@ -39,7 +39,7 @@ export const salesArchitectureData = {
   "who_this_is_for": {
     "section_label": "Perfil Ideal",
     "section_title": "Para Quién Es Esto",
-    "description": "Nuestros sistemas funcionan mejor para negocios de servicios establecidos listos para agregar ingresos predecibles por outbound.",
+    "description": "Nuestros sistemas funcionan mejor para negocios establecidos listos para agregar ingresos predecibles por outbound.",
     "criteria": [
       {
         "icon": "grid-3x3",
