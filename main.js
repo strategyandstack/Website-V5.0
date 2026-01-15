@@ -516,7 +516,7 @@ function highlightSyntax(text) {
         const parts = content.split('|').map(p => p.trim());
         const highlighted = parts.map((part, i) => {
             const v = part.replace(/\{\{(\w+)\}\}/g, colorizeToken);
-            return i < parts.length - 1 ? v + ' <span class="syntax-pipe">|</span> ' : v;
+            return i < parts.length - 1 ? v + '<span class="syntax-pipe"> | </span>' : v;
         }).join('');
         return `<span class="syntax-random">{{RANDOM}}</span> ${highlighted}`;
     });
