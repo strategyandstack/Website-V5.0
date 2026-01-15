@@ -511,8 +511,8 @@ function highlightSyntax(text) {
         return `<span class="${colorClass}">{{${varName}}}</span>`;
     };
     
-    // Process RANDOM blocks
-    escaped = escaped.replace(/\{\{RANDOM\s*\|([^}]+)\}\}/g, (m, content) => {
+    // Process RANDOM blocks - improved regex to handle nested tokens
+    escaped = escaped.replace(/\{\{RANDOM\s*\|((?:[^{}]|\{\{[^}]+\}\})+)\}\}/g, (m, content) => {
         const parts = content.split('|').map(p => p.trim());
         const highlighted = parts.map((part, i) => {
             const v = part.replace(/\{\{(\w+)\}\}/g, colorizeToken);
