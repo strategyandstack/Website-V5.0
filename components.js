@@ -80,7 +80,7 @@ export const createWhoThisIsForSection = (data, lang = 'en') => {
                         <i data-lucide="${item.icon}" class="w-5 h-5 text-purple-400"></i>
                     </div>
                     <div>
-                        <h4 class="font-bold text-sm mb-1">${item.title}</h4>
+                        <h3 class="font-bold text-sm mb-1">${item.title}</h3>
                         <p class="text-xs text-gray-300 leading-relaxed">${item.description}</p>
                     </div>
                 </div>`).join('')}
