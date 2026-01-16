@@ -318,8 +318,8 @@ h1, h2, h3, h4 { letter-spacing: -0.04em; font-weight: 700; }
 .tab-panel.hidden { display: none; }
 
 .editor-text { color: #E5E7EB; line-height: 1.8; }
-.syntax-random { color: #6B7280; font-weight: 600; }
-.syntax-pipe { color: #6B7280; }
+.syntax-random { color: #9CA3AF; font-weight: 600; }
+.syntax-pipe { color: #9CA3AF; }
 .syntax-variable { color: var(--purple-primary); font-weight: 600; }
 .syntax-firstname { color: var(--cyan-accent); font-weight: 600; }
 .syntax-sender { color: #A3E635; font-weight: 600; }
